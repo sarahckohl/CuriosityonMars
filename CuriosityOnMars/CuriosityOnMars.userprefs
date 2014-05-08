@@ -1,10 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\control_right_impeller.cs">
     <Files>
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\control_rover.cs" Line="30" Column="3" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\GameController.cs" Line="27" Column="4" />
-      <File FileName="Assets\control_right_impeller.cs" Line="16" Column="1" />
+      <File FileName="Assets\control_right_impeller.cs" Line="17" Column="67" />
+      <File FileName="Assets\control_left_impeller.cs" Line="17" Column="67" />
+      <File FileName="Assets\control_down_impeller.cs" Line="17" Column="67" />
+      <File FileName="Assets\control_up_impeller.cs" Line="17" Column="67" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
