@@ -70,6 +70,7 @@
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_impasse.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_impeller.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_left_impeller.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_repel.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_right_impeller.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_rover.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_up_impeller.cs" />
