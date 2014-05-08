@@ -46,10 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\control_down_impeller.cs" />
-     <Compile Include="Assets\control_left_impeller.cs" />
-     <Compile Include="Assets\control_right_impeller.cs" />
-     <Compile Include="Assets\control_up_impeller.cs" />
+     <Compile Include="Assets\control_impasse.cs" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />

@@ -65,7 +65,13 @@
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\EditorGrid.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\GameController.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\Grid.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_attractor.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_down_impeller.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_impasse.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_left_impeller.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_right_impeller.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_rover.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_up_impeller.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\itemScript.cs" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
