@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Desktop\CMPS179\Game2\CuriosityonMars\CuriosityOnMars\Assets\Standard Assets\Scripts\General Scripts\Grid.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\control_right_impeller.cs">
     <Files>
-      <File FileName="..\..\..\..\Desktop\CMPS179\Game2\CuriosityonMars\CuriosityOnMars\Assets\Standard Assets\Scripts\General Scripts\Grid.cs" Line="16" Column="36" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\control_rover.cs" Line="30" Column="3" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\GameController.cs" Line="27" Column="4" />
+      <File FileName="Assets\control_right_impeller.cs" Line="16" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
