@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class control_attractor : MonoBehaviour {
+public class control_repel : MonoBehaviour {
 	public control_rover rover;
 	public int attractRange = 3;
 	// Use this for initialization
@@ -17,10 +17,10 @@ public class control_attractor : MonoBehaviour {
 				print ("mathx: " + Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)));
 				if (rover.transform.position.x > this.transform.position.x) {
 					//checks if rover.x is greater than this.x for left or right
-					rover.dir = control_rover.Direction.Left;
+					rover.dir = control_rover.Direction.Right;
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.x) - Mathf.Abs ((int)this.transform.position.x)), "Left");
 				} else {
-					rover.dir = control_rover.Direction.Right;
+					rover.dir = control_rover.Direction.Left;
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.x) - Mathf.Abs ((int)this.transform.position.x)), "Right");
 				}
 			}
@@ -31,17 +31,17 @@ public class control_attractor : MonoBehaviour {
 				print ("mathy: " + Mathf.Abs(Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)));
 				if (rover.transform.position.y > this.transform.position.y) {
 					//checks if rover.y is greater than this.y for up or down
-					rover.dir = control_rover.Direction.Down;
+					rover.dir = control_rover.Direction.Up;
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.y) - Mathf.Abs ((int)this.transform.position.y)), "Down");
 				} else {
-					rover.dir = control_rover.Direction.Up;
+					rover.dir = control_rover.Direction.Down;
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.y) - Mathf.Abs ((int)this.transform.position.y)), "Up");
 				}
 			}
 		} 
 	}
 
-	// NOT SURE IF NEED THIS YET //
+	// NOT SURE IF THIS IS NEEDED YET //
 	void moveRoverNumSpaces(int range, string direction){
 		//should only move the number of spaces and stop
 		for (int i = 0; i < range; i++) {

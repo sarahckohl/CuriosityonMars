@@ -45,10 +45,10 @@ public class control_rover : MonoBehaviour {
 				{
 					// make sure there is not an impasse to the right.
 					Vector3 locationRight = new Vector3(this.transform.position.x + 1, this.transform.position.y,this.transform.position.z);
+					gameObject.transform.eulerAngles = new Vector3(0,0,-90);
 					if(control_impasse.transform.position != locationRight){
+						print ("right");
 						this.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
-						//rotates the rover image to go with the direction
-						gameObject.transform.eulerAngles = new Vector3(0,0,-90);
 					}
 				}
 			}else if(this.dir == Direction.Left)
@@ -58,9 +58,9 @@ public class control_rover : MonoBehaviour {
 				{
 					// make sure there is not an impasse to the left.
 					Vector3 locationLeft = new Vector3(this.transform.position.x - 1, this.transform.position.y,this.transform.position.z);
+					gameObject.transform.eulerAngles = new Vector3(0,0,90);
 					if(control_impasse.transform.position != locationLeft){
 						this.transform.position = new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
-						gameObject.transform.eulerAngles = new Vector3(0,0,90);
 					}
 				}
 			}else if(this.dir == Direction.Up)
@@ -70,9 +70,9 @@ public class control_rover : MonoBehaviour {
 				{
 					// make sure there is not an impasse upwards
 					Vector3 locationUp = new Vector3(this.transform.position.x, this.transform.position.y+1,this.transform.position.z);
+					gameObject.transform.eulerAngles = new Vector3(0,0,0);
 					if(control_impasse.transform.position != locationUp){
 						this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
-						gameObject.transform.eulerAngles = new Vector3(0,0,0);
 					}
 				}
 			}else if(this.dir == Direction.Down)
@@ -81,9 +81,9 @@ public class control_rover : MonoBehaviour {
 				{
 					// make sure there is not an impasse downwards
 					Vector3 locationDown = new Vector3(this.transform.position.x, this.transform.position.y-1,this.transform.position.z);
+					gameObject.transform.eulerAngles = new Vector3(0,0,180);
 					if(control_impasse.transform.position != locationDown){
 						this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z);
-						gameObject.transform.eulerAngles = new Vector3(0,0,180);
 					}
 				}
 			}
@@ -98,7 +98,7 @@ public class control_rover : MonoBehaviour {
 	{
 		//when placeStage is false, the rover can now move when it's on an impeller
 		//else if placeStage is true, it will not move
-		
+
 		// move the rover in the given direction
 		if (!gameController.placeStage) {
 			shouldMove = true;

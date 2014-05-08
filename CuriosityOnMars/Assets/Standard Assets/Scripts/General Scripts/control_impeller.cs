@@ -3,7 +3,7 @@ using System.Collections;
 
 public class control_impeller : MonoBehaviour
 {
-	
+
 	public enum Direction
 	{
 		Left, Right, Up, Down
@@ -31,9 +31,9 @@ public class control_impeller : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		// see if the rover is at the same coordinates as this
-		// if it is, set its direction to left
+		// if it is, set its direction
 		if (rover.transform.position.x.Equals (this.transform.position.x) &&
-		    rover.transform.position.y.Equals (this.transform.position.y)) {
+			rover.transform.position.y.Equals (this.transform.position.y)) {
 			if (dir == Direction.Up) {
 				rover.dir = control_rover.Direction.Up;
 			}
@@ -46,7 +46,7 @@ public class control_impeller : MonoBehaviour
 			else if (dir == Direction.Left){
 				rover.dir = control_rover.Direction.Left;
 			}
-			//rover.dir = control_rover.Direction.Left;
+				//rover.dir = control_rover.Direction.Left;
 		}
 	}
 }
