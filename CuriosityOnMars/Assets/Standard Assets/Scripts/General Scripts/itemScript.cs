@@ -4,10 +4,10 @@ using System.Collections;
 public class itemScript : MonoBehaviour {
 	
 	public bool dragging = false;
-	private Dragging drag;
+	private DragTransform drag;
 	// Use this for initialization
 	void Start () {
-		drag = this.GetComponent <Dragging> ();
+		drag = this.GetComponent <DragTransform> ();
 	}
 	
 	// Update is called once per frame
