@@ -12,6 +12,8 @@ public class control_rover : MonoBehaviour {
 	public Direction dir = Direction.Stop;
 	private System.Timers.Timer movementTimer;
 	private bool shouldMove;
+	public GameObject control_impasse;
+
 
 	// Use this for initialization
 	void Start () {
@@ -35,22 +37,46 @@ public class control_rover : MonoBehaviour {
 			{
 				// make sure it does not go over 8
 				if(this.transform.position.x < 8)
-					this.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
+				{
+					// make sure there is not an impasse to the right.
+					Vector3 locationRight = new Vector3(this.transform.position.x + 1, this.transform.position.y,this.transform.position.z);
+					if(control_impasse.transform.position != locationRight)
+						this.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
+				}
 			}else if(this.dir == Direction.Left)
 			{
 				// make sure this does not go less than 1
 				if (this.transform.position.x > 1)
-					this.transform.position = new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
+				{
+					// make sure there is not an impasse to the left.
+					Vector3 locationLeft = new Vector3(this.transform.position.x - 1, this.transform.position.y,this.transform.position.z);
+					if(control_impasse.transform.position != locationLeft)
+						this.transform.position = new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
+				}
 			}else if(this.dir == Direction.Up)
 			{
 				// keep its boundary
 				if (this.transform.position.y < 8)
-					this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
+				{
+					// make sure there is not an impasse upwards
+					Vector3 locationUp = new Vector3(this.transform.position.x, this.transform.position.y+1,this.transform.position.z);
+					if(control_impasse.transform.position != locationUp)
+						this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
+				}
 			}else if(this.dir == Direction.Down)
 			{
 				if (this.transform.position.y > 1)
-					this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z);
+				{
+					// make sure there is not an impasse downwards
+					Vector3 locationDown = new Vector3(this.transform.position.x, this.transform.position.y-1,this.transform.position.z);
+					if(control_impasse.transform.position != locationDown)
+						this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z);
+				}
 			}
+
+
+
+			// since we have moved, we should not move again for another second.
 			shouldMove = false;
 		}
 	}
