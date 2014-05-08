@@ -61,8 +61,12 @@
      <Compile Include="Assets\Standard Assets\Image Effects (Pro Only)\TwirlEffect.cs" />
      <Compile Include="Assets\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\DragTransform.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\Dragging.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\EditorGrid.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\GameController.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\Grid.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\itemScript.cs" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
