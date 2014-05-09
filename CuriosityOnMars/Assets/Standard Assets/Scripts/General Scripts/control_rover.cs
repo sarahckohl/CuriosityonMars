@@ -10,8 +10,8 @@ public class control_rover : MonoBehaviour {
 		Left, Right, Up, Down, Stop
 	}
 	public Direction dir = Direction.Stop;
-	private System.Timers.Timer movementTimer;
-	private bool shouldMove;
+	public System.Timers.Timer movementTimer;
+	public bool shouldMove;
 	public GameObject control_impasse;
 	private GameController gameController;
 
@@ -47,7 +47,6 @@ public class control_rover : MonoBehaviour {
 					Vector3 locationRight = new Vector3(this.transform.position.x + 1, this.transform.position.y,this.transform.position.z);
 					gameObject.transform.eulerAngles = new Vector3(0,0,-90);
 					if(control_impasse.transform.position != locationRight){
-						print ("right");
 						this.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
 					}
 				}
@@ -89,11 +88,14 @@ public class control_rover : MonoBehaviour {
 			}
 
 
-
 			// since we have moved, we should not move again for another second.
 			shouldMove = false;
 		}
+		else if(this.dir == Direction.Down){
+			shouldMove = false;
+		}
 	}
+
 	private void OnEverySecond(object source, ElapsedEventArgs e)
 	{
 		//when placeStage is false, the rover can now move when it's on an impeller
