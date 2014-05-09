@@ -32,8 +32,8 @@ public class control_impeller : MonoBehaviour
 	void Update () {
 		// see if the rover is at the same coordinates as this
 		// if it is, set its direction
-		if (rover.transform.position.x.Equals (this.transform.position.x) &&
-			rover.transform.position.y.Equals (this.transform.position.y)) {
+		if (rover.transform.position.x == this.transform.position.x &&
+			rover.transform.position.y == this.transform.position.y) {
 			if (dir == Direction.Up) {
 				rover.dir = control_rover.Direction.Up;
 			}
