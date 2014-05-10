@@ -40,11 +40,11 @@ public class control_attractor : MonoBehaviour {
 					rover.dir = control_rover.Direction.Right;
 				}
 			}
-			else if (Mathf.Abs (Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)) >= attractRange) {
+			//else if (Mathf.Abs (Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)) >= attractRange) {
 				//when the rover reaches the max range, it stops
 				//disabling the timer was the only way I could get it to stop
-				rover.movementTimer.Enabled = false;
-			}
+			//	rover.movementTimer.Enabled = false;
+			//}
 		} 
 		else if (rover.transform.position.x == this.transform.position.x) {
 			//checks if the rover is in range of the attractor
@@ -57,11 +57,11 @@ public class control_attractor : MonoBehaviour {
 					rover.dir = control_rover.Direction.Up;
 				}
 			}
-			else if (Mathf.Abs (Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)) >= attractRange) {;
+			//else if (Mathf.Abs (Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)) >= attractRange) {;
 				//when the rover reaches the max range, it stops
 				//disabling the timer was the only way I could get it to stop
-				rover.movementTimer.Enabled = false;
-			}
+			//	rover.movementTimer.Enabled = false;
+			//}
 		} 
 	}
 
