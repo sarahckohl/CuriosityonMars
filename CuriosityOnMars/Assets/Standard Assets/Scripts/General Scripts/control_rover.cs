@@ -91,7 +91,7 @@ public class control_rover : MonoBehaviour {
 			// since we have moved, we should not move again for another second.
 			shouldMove = false;
 		}
-		else if(this.dir == Direction.Down){
+		else if(this.dir == Direction.Stop){
 			shouldMove = false;
 		}
 	}
