@@ -52,7 +52,7 @@ public class control_attractor : MonoBehaviour {
 
 			print ("tiledistance: "+tileDistancex+","+tileDistancey);
 
-			if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
+			if( (tile.transform.position.x==this.transform.position.x && tileDistancey <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancex <= attractRange) )
 			tile.renderer.material.color = mouseOverColor;	
 		}
 
@@ -91,6 +91,9 @@ public class control_attractor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		if (this.transform.position.y <= 2)
+						return;
 
 		roverDistancex = Mathf.Abs (Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x));
 		roverDistancey = Mathf.Abs (Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y));

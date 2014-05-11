@@ -2,14 +2,92 @@ using UnityEngine;
 using System.Collections;
 
 public class control_repel : MonoBehaviour {
+
+	
+	private Color mouseOverColor = Color.cyan;
+	private Color originalColor;
+	bool hover;
 	public control_rover rover;
 	public int attractRange = 3;
+	float roverDistancex;
+	float roverDistancey;
+	GameObject[] tiles;
+
 	// Use this for initialization
 	void Start () {
+
+		hover = false;
+		tiles = GameObject.FindGameObjectsWithTag("map");
+		//originalColor = tiles [1].renderer.material.color;
+		originalColor = Color.clear;
+
 	}
+
+
+
+
+	void OnMouseEnter(){
+		hover = true;
+		print ("hover= "+hover+", attractor range:"+attractRange);
+		
+		//GameObject[] tiles = FindObjectsOfType(typeof(Sprite)) as GameObject[];
+		GameObject[] tiles = GameObject.FindGameObjectsWithTag("map");
+		
+		foreach (GameObject tile in tiles) {
+			
+			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
+			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
+			
+			print ("tiledistance: "+tileDistancex+","+tileDistancey);
+			
+			if( (tile.transform.position.x==this.transform.position.x && tileDistancey <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancex <= attractRange) )
+				tile.renderer.material.color = mouseOverColor;	
+		}
+		
+		
+	}
+	
+	
+	
+	void OnMouseDown()	
+	{	
+		foreach (GameObject tile in tiles) {
+			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
+			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
+			
+			if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
+				tile.renderer.material.color = originalColor;
+		}
+	}
+	
+	
+	void OnMouseExit(){
+		hover = false;
+		print ("hover= "+hover+", attractor range:"+attractRange);
+		
+		
+		
+		foreach (GameObject tile in tiles) {
+			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
+			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
+			
+			if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
+				tile.renderer.material.color = originalColor;
+		}
+		
+	}
+
+
+
+
+
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (this.transform.position.y <= 2)
+			return;
+
 		//check if the rover needs to go up or down
 		if (rover.transform.position.y == this.transform.position.y) {
 			//checks if the rover is in range of the attractor
