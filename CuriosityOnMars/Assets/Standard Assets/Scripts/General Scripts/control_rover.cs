@@ -13,6 +13,7 @@ public class control_rover : MonoBehaviour {
 	public System.Timers.Timer movementTimer;
 	public bool shouldMove;
 	public GameObject control_impasse;
+	public GameObject control_attractor;
 	private GameController gameController;
 
 
@@ -46,7 +47,7 @@ public class control_rover : MonoBehaviour {
 					// make sure there is not an impasse to the right.
 					Vector3 locationRight = new Vector3(this.transform.position.x + 1, this.transform.position.y,this.transform.position.z);
 					gameObject.transform.eulerAngles = new Vector3(0,0,-90);
-					if(control_impasse.transform.position != locationRight){
+					if(control_impasse.transform.position != locationRight && control_attractor.transform.position != locationRight ){
 						this.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
 					}
 				}
@@ -91,7 +92,7 @@ public class control_rover : MonoBehaviour {
 			// since we have moved, we should not move again for another second.
 			shouldMove = false;
 		}
-		else if(this.dir == Direction.Down){
+		else if(this.dir == Direction.Stop){
 			shouldMove = false;
 		}
 	}
