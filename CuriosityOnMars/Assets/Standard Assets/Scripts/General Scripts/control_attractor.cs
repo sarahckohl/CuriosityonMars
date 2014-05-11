@@ -6,8 +6,8 @@ public class control_attractor : MonoBehaviour {
 	public Sprite range4;
 	public Sprite range5;
 	public Sprite range6;
-	private Color mouseOverColor = Color.green;
-	private Color originalColor = Color.clear;
+	private Color mouseOverColor = Color.cyan;
+	private Color originalColor;
 	private SpriteRenderer spriteRenderer; 
 	public control_rover rover;
 	public int attractRange = 3;
@@ -20,8 +20,8 @@ public class control_attractor : MonoBehaviour {
 
 		hover = false;
 		tiles = GameObject.FindGameObjectsWithTag("map");
-		originalColor = tiles [1].renderer.material.color;
-
+		//originalColor = tiles [1].renderer.material.color;
+		originalColor = Color.clear;
 		spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
 		if (spriteRenderer.sprite == null){ // if the sprite on spriteRenderer is null then
 			spriteRenderer.sprite = range3; // set the sprite to sprite1
