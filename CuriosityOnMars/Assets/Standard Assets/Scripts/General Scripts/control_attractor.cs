@@ -28,10 +28,13 @@ public class control_attractor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		float roverDistancex = Mathf.Abs (Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x));
+
 		//check if the rover needs to go up or down
 		if (rover.transform.position.y == this.transform.position.y) {
 			//checks if the rover is in range of the attractor
-			if (Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)) <= attractRange) {
+			if (roverDistancex <= attractRange) {
 				print ("mathx: " + Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)));
 				if (rover.transform.position.x > this.transform.position.x) {
 					//checks if rover.x is greater than this.x for left or right
