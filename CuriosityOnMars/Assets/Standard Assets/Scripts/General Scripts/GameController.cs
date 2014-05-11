@@ -26,5 +26,13 @@ public class GameController : MonoBehaviour
 			print ("can't place objects");
 		}
 	}
+
+	void OnGUI () {
+		if(GUI.Button(new Rect(600,640,50,30), "Reset")) {
+			Application.LoadLevel("InGame");
+			print ("reset!!");
+		}
+	}
+
 }
 
