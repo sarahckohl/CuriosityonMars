@@ -59,6 +59,20 @@ public class control_attractor : MonoBehaviour {
 
 	}
 
+
+
+	void OnMouseDown()	
+	{	
+		foreach (GameObject tile in tiles) {
+			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
+			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
+			
+			if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
+				tile.renderer.material.color = originalColor;
+		}
+	}
+
+
 	void OnMouseExit(){
 		hover = false;
 		print ("hover= "+hover+", attractor range:"+attractRange);
