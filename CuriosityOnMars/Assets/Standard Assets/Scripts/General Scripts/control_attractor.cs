@@ -10,6 +10,8 @@ public class control_attractor : MonoBehaviour {
 	private Color originalColor;
 	private SpriteRenderer spriteRenderer; 
 	public control_rover rover;
+	public bool collideAttract = false;
+	public bool activateAttract = false;
 	public int attractRange = 3;
 	bool hover;
 	float roverDistancex;
@@ -35,6 +37,7 @@ public class control_attractor : MonoBehaviour {
 		else if (attractRange == 6){
 			spriteRenderer.sprite = range6;
 		}
+		collideAttract = false;
 	}
 
 
@@ -101,6 +104,11 @@ public class control_attractor : MonoBehaviour {
 
 		//check if the rover needs to go up or down
 		if (rover.transform.position.y == this.transform.position.y) {
+			if (rover.impassable && !collideAttract) {
+				rover.impassable = false;
+
+			}
+
 			//checks if the rover is in range of the attractor
 			if (roverDistancex <= attractRange) {
 				print ("mathx: " + Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)));
@@ -118,6 +126,10 @@ public class control_attractor : MonoBehaviour {
 			//}
 		} 
 		else if (rover.transform.position.x == this.transform.position.x) {
+			if (rover.impassable && !collideAttract) {
+				rover.impassable = false;
+			}
+
 			//checks if the rover is in range of the attractor
 			if (roverDistancey <= attractRange) {
 				print ("mathy: " + Mathf.Abs(Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)));
@@ -135,6 +147,15 @@ public class control_attractor : MonoBehaviour {
 			//}
 		} 
 	}
+
+	void OnTriggerEnter(Collider col) {
+		if (col.tag == "Player") {
+			Debug.Log("attract collide");
+			collideAttract = true;
+			//Destroy(this);
+			return;
+		}
+	} 
 
 
 }

@@ -9,10 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 114: {fileID: 11400004}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: attractor
   m_TagString: Attract
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 8, z: 0}
+  m_LocalPosition: {x: 5, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,6 +51,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3013e6a4743b364d8926c72f0312da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cell_size: 1
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15a0ac34f24d9b74ebb322f6a0247a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -59,8 +71,10 @@ MonoBehaviour:
   range5: {fileID: 21300000, guid: 35f0d213381c496489983952bc483487, type: 3}
   range6: {fileID: 21300000, guid: 3004b5c292067a84ab963fff553b5b6a, type: 3}
   rover: {fileID: 0}
+  collideAttract: 0
+  activateAttract: 0
   attractRange: 3
---- !u!114 &11400002
+--- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -73,18 +87,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragging: 0
   gotMoveItems: 0
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3013e6a4743b364d8926c72f0312da3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cell_size: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
