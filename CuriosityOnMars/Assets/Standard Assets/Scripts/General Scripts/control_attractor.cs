@@ -152,7 +152,7 @@ public class control_attractor : MonoBehaviour {
 		if (col.tag == "Player") {
 			Debug.Log("attract collide");
 			collideAttract = true;
-			//Destroy(this);
+			Destroy(this);
 			return;
 		}
 	} 
