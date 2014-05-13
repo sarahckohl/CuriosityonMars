@@ -6,17 +6,27 @@ TagManager:
   - Border
   - map
   - 
-  - passable
-  - impassable
-  - attactor
-  - repeller
+  - Passable
+  - Impass
+  - Attract
+  - Repel
   - Photo
   - 
   - 
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - border
+  - impassable
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

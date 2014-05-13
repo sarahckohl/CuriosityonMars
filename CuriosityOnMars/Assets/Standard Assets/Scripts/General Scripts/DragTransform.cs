@@ -4,7 +4,7 @@ using UnityEngine;
 class DragTransform : MonoBehaviour
 {
 	private Color mouseOverColor = Color.blue;
-	private Color originalColor = Color.yellow;
+	private Color originalColor = Color.white;
 	public bool dragging = false;
 	public bool gotMoveItems = false;
 	private float distance;

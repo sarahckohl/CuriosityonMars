@@ -28,7 +28,8 @@ public class GameController : MonoBehaviour
 	}
 
 	void OnGUI () {
-		if(GUI.Button(new Rect(600,640,50,30), "Reset")) {
+		//not sure why the numbers are doubled when the game runs though..
+		if(GUI.Button(new Rect(290,310,50,30), "Reset")) {
 			Application.LoadLevel("InGame");
 			print ("reset!!");
 		}
