@@ -15,6 +15,7 @@ public class control_rover : MonoBehaviour {
 	public GameObject[] repellers;
 	public GameObject[] attractors;
 	public GameObject[] impasses;
+	public bool impassable = false;
 	private GameController gameController;
 	
 	
@@ -28,7 +29,16 @@ public class control_rover : MonoBehaviour {
 		movementTimer.Elapsed += new ElapsedEventHandler (OnEverySecond);
 		movementTimer.Enabled = true;
 		shouldMove = false;
+		impassable = false;
 	}
+
+	void OnTriggerEnter(Collider col) {
+		if (col.tag == "Border" || col.tag == "Attract" || col.tag == "Repel" || col.tag == "Impass") {
+			Debug.Log("collide");
+			impassable = true;
+			return;
+		}
+	} 
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,11 +56,11 @@ public class control_rover : MonoBehaviour {
 				if(this.transform.position.x < 8)
 				{
 					// make sure there is not an impasse to the right.
-					Vector3 locationRight = new Vector3(this.transform.position.x + 1, this.transform.position.y,this.transform.position.z);
+					Vector2 locationRight = new Vector2(this.transform.position.x + 1, this.transform.position.y);
 					gameObject.transform.eulerAngles = new Vector3(0,0,-90);
 					
-					if(!obstaclesAt(locationRight)){
-						this.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
+					if(!impassable){
+						this.transform.position = new Vector2(this.transform.position.x + 1, this.transform.position.y);
 					}
 				}
 			}else if(this.dir == Direction.Left)
@@ -59,10 +69,10 @@ public class control_rover : MonoBehaviour {
 				if (this.transform.position.x > 1)
 				{
 					// make sure there is not an impasse to the left.
-					Vector3 locationLeft = new Vector3(this.transform.position.x - 1, this.transform.position.y,this.transform.position.z);
+					Vector2 locationLeft = new Vector2(this.transform.position.x - 1, this.transform.position.y);
 					gameObject.transform.eulerAngles = new Vector3(0,0,90);
-					if(!obstaclesAt(locationLeft)){
-						this.transform.position = new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
+					if(!impassable){
+						this.transform.position = new Vector2(this.transform.position.x - 1, this.transform.position.y);
 					}
 				}
 			}else if(this.dir == Direction.Up)
@@ -71,10 +81,10 @@ public class control_rover : MonoBehaviour {
 				if (this.transform.position.y < 8)
 				{
 					// make sure there is not an impasse upwards
-					Vector3 locationUp = new Vector3(this.transform.position.x, this.transform.position.y+1,this.transform.position.z);
+					Vector2 locationUp = new Vector2(this.transform.position.x, this.transform.position.y+1);
 					gameObject.transform.eulerAngles = new Vector3(0,0,0);
-					if(!obstaclesAt(locationUp)){
-						this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
+					if(!impassable){
+						this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
 					}
 				}
 			}else if(this.dir == Direction.Down)
@@ -83,10 +93,10 @@ public class control_rover : MonoBehaviour {
 				if (this.transform.position.y > 3)
 				{
 					// make sure there is not an impasse downwards
-					Vector3 locationDown = new Vector3(this.transform.position.x, this.transform.position.y-1,this.transform.position.z);
+					Vector2 locationDown = new Vector2(this.transform.position.x, this.transform.position.y-1);
 					gameObject.transform.eulerAngles = new Vector3(0,0,180);
-					if(!obstaclesAt(locationDown)){
-						this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z);
+					if(!impassable){
+						this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 1);
 					}
 				}
 			}
@@ -99,15 +109,18 @@ public class control_rover : MonoBehaviour {
 			shouldMove = false;
 		}
 	}
-	
+
 	private void OnEverySecond(object source, ElapsedEventArgs e)
 	{
 		//when placeStage is false, the rover can now move when it's on an impeller
 		//else if placeStage is true, it will not move
 		
 		// move the rover in the given direction
-		if (!gameController.placeStage) {
+		if (!gameController.placeStage && !impassable) {
 			shouldMove = true;
+		}
+		if (impassable) {
+			shouldMove = false;
 		}
 	}
 	
