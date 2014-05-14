@@ -246,7 +246,7 @@ Transform:
   m_PrefabInternal: {fileID: 266761325}
   m_GameObject: {fileID: 111564752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 8, z: 0}
+  m_LocalPosition: {x: 4, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -259,10 +259,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 115140713}
   - 212: {fileID: 115140712}
-  - 114: {fileID: 115140710}
-  - 114: {fileID: 115140709}
   - 114: {fileID: 115140708}
   - 65: {fileID: 115140711}
+  - 114: {fileID: 115140709}
+  - 114: {fileID: 115140710}
   m_Layer: 0
   m_Name: attractor
   m_TagString: Attract
@@ -279,6 +279,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 115140707}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3013e6a4743b364d8926c72f0312da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cell_size: 1
+--- !u!114 &115140709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 67a98c9712262a9489bbd3ea9b223f9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 493170512}
+  m_GameObject: {fileID: 115140707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15a0ac34f24d9b74ebb322f6a0247a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -286,12 +299,14 @@ MonoBehaviour:
   range4: {fileID: 21300000, guid: 19858fe959d16bc4794c7888c173aeea, type: 3}
   range5: {fileID: 21300000, guid: 35f0d213381c496489983952bc483487, type: 3}
   range6: {fileID: 21300000, guid: 3004b5c292067a84ab963fff553b5b6a, type: 3}
-  rover: {fileID: 1930769566}
+  rover: {fileID: 0}
+  collideAttract: 0
+  activateAttract: 0
   attractRange: 3
---- !u!114 &115140709
+--- !u!114 &115140710
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 67a98c9712262a9489bbd3ea9b223f9e,
+  m_PrefabParentObject: {fileID: 11400004, guid: 67a98c9712262a9489bbd3ea9b223f9e,
     type: 2}
   m_PrefabInternal: {fileID: 493170512}
   m_GameObject: {fileID: 115140707}
@@ -302,19 +317,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragging: 0
   gotMoveItems: 0
---- !u!114 &115140710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: 67a98c9712262a9489bbd3ea9b223f9e,
-    type: 2}
-  m_PrefabInternal: {fileID: 493170512}
-  m_GameObject: {fileID: 115140707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3013e6a4743b364d8926c72f0312da3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cell_size: 1
 --- !u!65 &115140711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -372,11 +374,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -862,6 +864,7 @@ GameObject:
   - 212: {fileID: 1193317324}
   - 65: {fileID: 1193317323}
   - 114: {fileID: 1193317322}
+  - 114: {fileID: 1193317321}
   m_Layer: 0
   m_Name: goal
   m_TagString: passable
@@ -869,6 +872,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1193317321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193317320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5121581422dfc4da37a908b8c0863e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1193317322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1848,6 +1862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rover: {fileID: 1930769566}
+  collideRepel: 0
+  activateRepel: 0
   attractRange: 6
 --- !u!114 &2115977309
 MonoBehaviour:
