@@ -100,6 +100,7 @@ public class control_repel : MonoBehaviour {
 		if (rover.transform.position.y == this.transform.position.y) {
 			if (rover.impassable && !collideRepel) {
 				rover.impassable = false;
+				activateRepel = true;
 			}
 
 			//checks if the rover is in range of the attractor
@@ -113,6 +114,10 @@ public class control_repel : MonoBehaviour {
 					rover.dir = control_rover.Direction.Left;
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.x) - Mathf.Abs ((int)this.transform.position.x)), "Right");
 				}
+				if (Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)) == attractRange && activateRepel){
+					rover.impassable = true;
+					//Destroy(this);
+				}
 			}
 			//else if (Mathf.Abs (Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)) >= attractRange) {
 				//when the rover reaches the max range, it stops
@@ -123,6 +128,7 @@ public class control_repel : MonoBehaviour {
 		else if (rover.transform.position.x == this.transform.position.x) {
 			if (rover.impassable && !collideRepel) {
 				rover.impassable = false;
+				activateRepel = true;
 			}
 			//checks if the rover is in range of the attractor
 			if (Mathf.Abs(Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)) <= attractRange) {
@@ -134,6 +140,10 @@ public class control_repel : MonoBehaviour {
 				} else if (rover.transform.position.y < this.transform.position.y) {
 					rover.dir = control_rover.Direction.Down;
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.y) - Mathf.Abs ((int)this.transform.position.y)), "Up");
+				}
+				if (Mathf.Abs(Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)) == attractRange && activateRepel){
+					rover.impassable = true;
+					//Destroy(this);
 				}
 			}
 			//else if (Mathf.Abs (Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)) >= attractRange) {;
