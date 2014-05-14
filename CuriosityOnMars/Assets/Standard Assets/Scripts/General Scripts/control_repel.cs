@@ -27,6 +27,8 @@ public class control_repel : MonoBehaviour {
 		//originalColor = tiles [1].renderer.material.color;
 		originalColor = Color.clear;
 		collideRepel = false;
+
+		//attractObject.transform.
 	}
 
 
@@ -34,17 +36,17 @@ public class control_repel : MonoBehaviour {
 
 	void OnMouseEnter(){
 		hover = true;
-		print ("hover= "+hover+", attractor range:"+attractRange);
+	//	print ("hover= "+hover+", attractor range:"+attractRange);
 		
 		//GameObject[] tiles = FindObjectsOfType(typeof(Sprite)) as GameObject[];
-		GameObject[] tiles = GameObject.FindGameObjectsWithTag("map");
+		//GameObject[] tiles = GameObject.FindGameObjectsWithTag("map");
 		
 		foreach (GameObject tile in tiles) {
 			
 			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
 			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
 			
-			print ("tiledistance: "+tileDistancex+","+tileDistancey);
+			//print ("tiledistance: "+tileDistancex+","+tileDistancey);
 			
 			if( (tile.transform.position.x==this.transform.position.x && tileDistancey <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancex <= attractRange) )
 				tile.renderer.material.color = mouseOverColor;	
@@ -69,7 +71,7 @@ public class control_repel : MonoBehaviour {
 	
 	void OnMouseExit(){
 		hover = false;
-		print ("hover= "+hover+", attractor range:"+attractRange);
+		//print ("hover= "+hover+", attractor range:"+attractRange);
 		
 		
 		
@@ -102,7 +104,7 @@ public class control_repel : MonoBehaviour {
 
 			//checks if the rover is in range of the attractor
 			if (Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)) <= attractRange) {
-				print ("mathx: " + Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)));
+			//	print ("mathx: " + Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)));
 				if (rover.transform.position.x > this.transform.position.x) {
 					//checks if rover.x is greater than this.x for left or right
 					rover.dir = control_rover.Direction.Right;
@@ -124,7 +126,7 @@ public class control_repel : MonoBehaviour {
 			}
 			//checks if the rover is in range of the attractor
 			if (Mathf.Abs(Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)) <= attractRange) {
-				print ("mathy: " + Mathf.Abs(Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)));
+				//print ("mathy: " + Mathf.Abs(Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)));
 				if (rover.transform.position.y > this.transform.position.y) {
 					//checks if rover.y is greater than this.y for up or down
 					rover.dir = control_rover.Direction.Up;
@@ -147,7 +149,7 @@ public class control_repel : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col) {
 		if (col.tag == "Player") {
-			Debug.Log("repel collide");
+			//Debug.Log("repel collide");
 			collideRepel = true;
 			activateRepel = false;
 			return;

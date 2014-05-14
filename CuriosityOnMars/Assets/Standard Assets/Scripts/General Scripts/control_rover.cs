@@ -56,7 +56,6 @@ public class control_rover : MonoBehaviour {
 				if(this.transform.position.x < 8)
 				{
 					// make sure there is not an impasse to the right.
-					Vector2 locationRight = new Vector2(this.transform.position.x + 1, this.transform.position.y);
 					gameObject.transform.eulerAngles = new Vector3(0,0,-90);
 					
 					if(!impassable){
@@ -69,7 +68,6 @@ public class control_rover : MonoBehaviour {
 				if (this.transform.position.x > 1)
 				{
 					// make sure there is not an impasse to the left.
-					Vector2 locationLeft = new Vector2(this.transform.position.x - 1, this.transform.position.y);
 					gameObject.transform.eulerAngles = new Vector3(0,0,90);
 					if(!impassable){
 						this.transform.position = new Vector2(this.transform.position.x - 1, this.transform.position.y);
@@ -81,7 +79,6 @@ public class control_rover : MonoBehaviour {
 				if (this.transform.position.y < 8)
 				{
 					// make sure there is not an impasse upwards
-					Vector2 locationUp = new Vector2(this.transform.position.x, this.transform.position.y+1);
 					gameObject.transform.eulerAngles = new Vector3(0,0,0);
 					if(!impassable){
 						this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
@@ -93,7 +90,6 @@ public class control_rover : MonoBehaviour {
 				if (this.transform.position.y > 3)
 				{
 					// make sure there is not an impasse downwards
-					Vector2 locationDown = new Vector2(this.transform.position.x, this.transform.position.y-1);
 					gameObject.transform.eulerAngles = new Vector3(0,0,180);
 					if(!impassable){
 						this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 1);

@@ -23,15 +23,15 @@ public class GameController : MonoBehaviour
 		if (Input.GetKey (KeyCode.Return) && placeStage) {
 			placeStage = false;
 			moveItems = false;
-			print ("can't place objects");
+			//print ("can't place objects");
 		}
 	}
 
 	void OnGUI () {
 		//not sure why the numbers are doubled when the game runs though..
 		if(GUI.Button(new Rect(0,0,50,30), "Reset")) {
-			Application.LoadLevel("InGame");
-			print ("reset!!");
+			Application.LoadLevel(Application.loadedLevel);
+			//print ("reset!!");
 		}
 	}
 
