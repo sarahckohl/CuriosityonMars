@@ -53,7 +53,7 @@ public class control_rover : MonoBehaviour {
 			if(this.dir == Direction.Right)
 			{
 				// make sure it does not go over 8
-				if(this.transform.position.x < 8)
+				if(this.transform.position.x < 10)
 				{
 					// make sure there is not an impasse to the right.
 					gameObject.transform.eulerAngles = new Vector3(0,0,-90);
@@ -76,7 +76,7 @@ public class control_rover : MonoBehaviour {
 			}else if(this.dir == Direction.Up)
 			{
 				// keep its boundary
-				if (this.transform.position.y < 8)
+				if (this.transform.position.y < 9)
 				{
 					// make sure there is not an impasse upwards
 					gameObject.transform.eulerAngles = new Vector3(0,0,0);
@@ -87,7 +87,7 @@ public class control_rover : MonoBehaviour {
 			}else if(this.dir == Direction.Down)
 			{
 				// make sure the rover does not go down off play area
-				if (this.transform.position.y > 3)
+				if (this.transform.position.y > 2)
 				{
 					// make sure there is not an impasse downwards
 					gameObject.transform.eulerAngles = new Vector3(0,0,180);

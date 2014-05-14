@@ -5,10 +5,10 @@ public class Grid : MonoBehaviour {
 
 	public GameObject sprite;
 	public GameObject border;
-	public int width = 10;
-	public int height = 10;
+	private int width = 12;
+	private int height = 11;
 
-	private GameObject [,] grid = new GameObject[10,10];
+	private GameObject [,] grid = new GameObject[12,11];
 	GameObject gridPlane;
 
 	void Awake() {
@@ -16,7 +16,7 @@ public class Grid : MonoBehaviour {
 		for (int i = 0; i < width; i++) {
 			//rows
 			for (int j = 0; j < height; j++) {
-				if (j==height-1 || j== 2 || i == 0 || i == width-1){
+				if (j==height-1 || j== 1 || i == 0 || i == width-1){
 					gridPlane = (GameObject)Instantiate(border);
 				}
 				else {
