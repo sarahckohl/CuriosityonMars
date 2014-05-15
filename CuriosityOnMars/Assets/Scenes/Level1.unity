@@ -958,6 +958,7 @@ GameObject:
   - 124: {fileID: 1435873739}
   - 92: {fileID: 1435873738}
   - 81: {fileID: 1435873737}
+  - 114: {fileID: 1435873742}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -1001,7 +1002,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 1
+    height: 1.95599997
   near clip plane: 0
   far clip plane: 1000
   field of view: 60
@@ -1026,6 +1027,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &1435873742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1435873736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f92682ee855754abe5eb1378af1fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1514021529
 Prefab:
   m_ObjectHideFlags: 0
@@ -1150,7 +1162,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 571e8f963f1e1e043a5c112f4ece9f11, type: 3}
-  m_Color: {r: .200692073, g: .941176474, b: .787972808, a: 1}
+  m_Color: {r: 1, g: .475862086, b: 0, a: 1}
 --- !u!4 &1521830491
 Transform:
   m_ObjectHideFlags: 0
@@ -1205,6 +1217,22 @@ Prefab:
       propertyPath: dir
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: ff4d60bbfa21e9645a4d873783acff45, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: ff4d60bbfa21e9645a4d873783acff45, type: 2}
+      propertyPath: m_Color.g
+      value: .475862086
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: ff4d60bbfa21e9645a4d873783acff45, type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: ff4d60bbfa21e9645a4d873783acff45, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff4d60bbfa21e9645a4d873783acff45, type: 2}
   m_RootGameObject: {fileID: 1521830487}
