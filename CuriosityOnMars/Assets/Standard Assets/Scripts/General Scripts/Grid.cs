@@ -16,8 +16,9 @@ public class Grid : MonoBehaviour {
 		for (int i = 0; i < width; i++) {
 			//rows
 			for (int j = 0; j < height; j++) {
-				if (j==height-1 || j== 1 || i == 0 || i == width-1){
-					gridPlane = (GameObject)Instantiate(border);
+				if (j==height-1 || /*j== 0 ||*/ i == 0 || i == width-1){
+					//gridPlane = (GameObject)Instantiate(border);
+					continue;
 				}
 				else {
 					gridPlane = (GameObject)Instantiate(sprite);
