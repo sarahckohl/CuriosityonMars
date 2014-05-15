@@ -99,7 +99,7 @@ public class control_rover : MonoBehaviour {
 			}else if(this.dir == Direction.Down)
 			{
 				// make sure the rover does not go down off play area
-				if (this.transform.position.y > 2)
+				if (this.transform.position.y > 1)
 				{
 					// make sure there is not an impasse downwards
 					gameObject.transform.eulerAngles = new Vector3(0,0,180);

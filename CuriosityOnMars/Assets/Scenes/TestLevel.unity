@@ -254,7 +254,7 @@ Transform:
   m_PrefabInternal: {fileID: 493170512}
   m_GameObject: {fileID: 115140707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0, z: 0}
+  m_LocalPosition: {x: 9, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -307,11 +307,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 67a98c9712262a9489bbd3ea9b223f9e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 67a98c9712262a9489bbd3ea9b223f9e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 67a98c9712262a9489bbd3ea9b223f9e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -766,7 +766,7 @@ Transform:
   m_PrefabInternal: {fileID: 1514021529}
   m_GameObject: {fileID: 961977813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 4, z: 0}
+  m_LocalPosition: {x: 7, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1259,11 +1259,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 6552dc9945402d148b2a16d29a16e550, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6552dc9945402d148b2a16d29a16e550, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6552dc9945402d148b2a16d29a16e550, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1463,11 +1463,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 56202376d9ec11046b8dd8895a795b63, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 56202376d9ec11046b8dd8895a795b63, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 56202376d9ec11046b8dd8895a795b63, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1495,7 +1495,7 @@ Prefab:
       objectReference: {fileID: 1930769566}
     - target: {fileID: 11400000, guid: 56202376d9ec11046b8dd8895a795b63, type: 2}
       propertyPath: attractRange
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -2072,7 +2072,7 @@ MonoBehaviour:
   rover: {fileID: 1930769566}
   collideRepel: 0
   activateRepel: 0
-  attractRange: 5
+  attractRange: 3
 --- !u!114 &2115977309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2144,7 +2144,7 @@ Transform:
   m_PrefabInternal: {fileID: 1776114434}
   m_GameObject: {fileID: 2115977307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 8, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
