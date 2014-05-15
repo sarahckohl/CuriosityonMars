@@ -12,9 +12,9 @@ public class control_rover : MonoBehaviour {
 	public Direction dir = Direction.Stop;
 	public System.Timers.Timer movementTimer;
 	public bool shouldMove;
-	public GameObject[] repellers;
-	public GameObject[] attractors;
-	public GameObject[] impasses;
+	//public GameObject[] repellers;
+	//public GameObject[] attractors;
+	//public GameObject[] impasses;
 	public bool impassable = false;
 	private GameController gameController;
 	
@@ -33,10 +33,19 @@ public class control_rover : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		if (col.tag == "Border" || col.tag == "Attract" || col.tag == "Repel" || col.tag == "Impass") {
+		if (col.tag == "Attract" || col.tag == "Repel" || col.tag == "Impass") {
 			Debug.Log("collide");
 			impassable = true;
 			return;
+		}
+		if (col.tag == "Destruct") {
+			if (col.transform.position == this.transform.position){
+				print ("destruct");
+				shouldMove = false;
+				gameController.gameOver = true;
+				//Application.LoadLevel(Application.loadedLevel);
+				//rover_gameover.SetBool("collide_destruct", true);
+			}
 		}
 	} 
 	
@@ -119,7 +128,8 @@ public class control_rover : MonoBehaviour {
 			shouldMove = false;
 		}
 	}
-	
+
+	/*
 	// Returns true if there is an impass at Vector3 location
 	private Boolean impassAt(Vector3 location)
 	{
@@ -164,4 +174,5 @@ public class control_rover : MonoBehaviour {
 	{
 		return impassAt (location) || attractorAt (location) || repellerAt (location);
 	}
+	*/
 }
