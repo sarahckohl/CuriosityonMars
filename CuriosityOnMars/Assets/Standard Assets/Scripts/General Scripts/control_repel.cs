@@ -27,7 +27,7 @@ public class control_repel : MonoBehaviour {
 		//originalColor = tiles [1].renderer.material.color;
 		originalColor = Color.clear;
 		collideRepel = false;
-
+		gameObject.tag = "Repel";
 		//attractObject.transform.
 	}
 

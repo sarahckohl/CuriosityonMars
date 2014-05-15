@@ -26,6 +26,7 @@ public class control_impeller : MonoBehaviour
 		else if (dir == Direction.Left){
 			gameObject.transform.eulerAngles = new Vector3(0,0,90);
 		}
+		gameObject.tag = "passable";
 	}
 	
 	// Update is called once per frame

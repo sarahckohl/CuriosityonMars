@@ -45,6 +45,7 @@ public class control_attractor : MonoBehaviour {
 			spriteRenderer.sprite = range6;
 		}
 		collideAttract = false;
+		gameObject.tag = "Attract";
 	}
 
 
