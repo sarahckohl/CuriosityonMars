@@ -27,8 +27,6 @@ public class control_attractor : MonoBehaviour {
 		hover = false;
 		tiles = GameObject.FindGameObjectsWithTag("map");
 
-		Attract
-
 
 
 		//originalColor = tiles [1].renderer.material.color;
