@@ -13,15 +13,24 @@ public class control_attractor : MonoBehaviour {
 	public bool collideAttract = false;
 	public bool activateAttract = false;
 	public int attractRange = 3;
+	Vector3 originalPosition;
 	bool hover;
 	float roverDistancex;
 	float roverDistancey;
 	GameObject[] tiles;
+	GameObject[] nooverlap;
 	// Use this for initialization
 	void Start () {
 
+		originalPosition = this.transform.position;
+
 		hover = false;
 		tiles = GameObject.FindGameObjectsWithTag("map");
+
+		Attract
+
+
+
 		//originalColor = tiles [1].renderer.material.color;
 		originalColor = Color.clear;
 		spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
@@ -43,22 +52,17 @@ public class control_attractor : MonoBehaviour {
 
 	void OnMouseEnter(){
 		hover = true;
-		print ("hover= "+hover+", attractor range:"+attractRange);
 
-		//GameObject[] tiles = FindObjectsOfType(typeof(Sprite)) as GameObject[];
-		//tiles = GameObject.FindGameObjectsWithTag("map");
-		/*
 		foreach (GameObject tile in tiles) {
 
 			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
 			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
 
-			print ("tiledistance: "+tileDistancex+","+tileDistancey);
 
 			if( (tile.transform.position.x==this.transform.position.x && tileDistancey <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancex <= attractRange) )
 			tile.renderer.material.color = mouseOverColor;	
 		}
-*/
+
 
 	}
 
@@ -66,22 +70,6 @@ public class control_attractor : MonoBehaviour {
 
 	void OnMouseDown()	
 	{	
-		/*foreach (GameObject tile in tiles) {
-			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
-			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
-			
-			if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
-				tile.renderer.material.color = originalColor;
-		}*/
-	}
-
-
-	void OnMouseExit(){
-		hover = false;
-		print ("hover= "+hover+", attractor range:"+attractRange);
-
-
-		/*
 		foreach (GameObject tile in tiles) {
 			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
 			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
@@ -89,7 +77,19 @@ public class control_attractor : MonoBehaviour {
 			if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
 				tile.renderer.material.color = originalColor;
 		}
-*/
+	}
+
+
+	void OnMouseExit(){
+		hover = false;
+		
+		foreach (GameObject tile in tiles) {
+			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
+			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
+			
+			if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
+				tile.renderer.material.color = originalColor;
+		}
 	}
 
 	// Update is called once per frame

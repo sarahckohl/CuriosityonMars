@@ -38,15 +38,10 @@ public class control_repel : MonoBehaviour {
 		hover = true;
 	//	print ("hover= "+hover+", attractor range:"+attractRange);
 		
-		//GameObject[] tiles = FindObjectsOfType(typeof(Sprite)) as GameObject[];
-		//GameObject[] tiles = GameObject.FindGameObjectsWithTag("map");
-		
 		foreach (GameObject tile in tiles) {
 			
 			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
 			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
-			
-			//print ("tiledistance: "+tileDistancex+","+tileDistancey);
 			
 			if( (tile.transform.position.x==this.transform.position.x && tileDistancey <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancex <= attractRange) )
 				tile.renderer.material.color = mouseOverColor;	
