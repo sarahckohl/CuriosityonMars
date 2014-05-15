@@ -30,6 +30,7 @@ public class control_rover : MonoBehaviour {
 		movementTimer.Enabled = true;
 		shouldMove = false;
 		impassable = false;
+		gameObject.tag = "Player";
 	}
 
 	void OnTriggerEnter(Collider col) {
@@ -42,6 +43,8 @@ public class control_rover : MonoBehaviour {
 			if (col.transform.position == this.transform.position){
 				print ("destruct");
 				shouldMove = false;
+				gameController.lose = true;
+				gameController.win = false;
 				gameController.gameOver = true;
 				//Application.LoadLevel(Application.loadedLevel);
 				//rover_gameover.SetBool("collide_destruct", true);

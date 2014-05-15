@@ -6,13 +6,17 @@ public class GameController : MonoBehaviour
 	public bool gameOver = false;
 	public bool placeStage = false;
 	public bool moveItems = false;
+	public bool win = false;
+	public bool lose = false;
+	public GUIText endlevel;
 
 	// Use this for initialization
 	void Start ()
 	{
-
+		gameObject.tag = "GameController";
 		placeStage = true;
 		moveItems = true;
+		endlevel.text = "";
 	}
 	
 	// Update is called once per frame
@@ -25,11 +29,26 @@ public class GameController : MonoBehaviour
 			placeStage = false;
 			moveItems = false;
 			//print ("can't place objects");
+			endlevel.text = "";
 		}
 
 		if (gameOver) {
 			print ("try again!");
 			//Application.LoadLevel(Application.loadedLevel);
+			if (win) {
+				gameOverText("You win!! Press Enter for the next level.");
+				if (Input.GetKey (KeyCode.Return)) {
+					Application.LoadLevel(Application.loadedLevel + 1);
+					endlevel.text = "";
+				}
+			}
+			else if (lose) {
+				gameOverText("You fell into a pit! Press Enter to try again.");
+				if (Input.GetKey (KeyCode.Return)) {
+					Application.LoadLevel(Application.loadedLevel);
+					endlevel.text = "";
+				}
+			}
 		}
 	}
 
@@ -39,6 +58,11 @@ public class GameController : MonoBehaviour
 			Application.LoadLevel(Application.loadedLevel);
 			//print ("reset!!");
 		}
+	}
+
+	public void gameOverText(string reason)
+	{
+		endlevel.text = reason;
 	}
 
 }
