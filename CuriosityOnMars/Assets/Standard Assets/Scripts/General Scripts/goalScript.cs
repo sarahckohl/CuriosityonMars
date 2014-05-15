@@ -15,7 +15,7 @@ public class goalScript : MonoBehaviour {
 		if (gameControllerObject != null) {
 			gameController = gameControllerObject.GetComponent <GameController>();
 		}
-		gameObject.tag = "Goal";
+		//gameObject.tag = "Goal";
 	}
 	
 	// Update is called once per frame
