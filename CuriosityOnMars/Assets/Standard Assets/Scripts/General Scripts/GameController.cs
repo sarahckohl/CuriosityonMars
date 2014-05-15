@@ -26,6 +26,11 @@ public class GameController : MonoBehaviour
 			moveItems = false;
 			//print ("can't place objects");
 		}
+
+		if (gameOver) {
+			print ("try again!");
+			//Application.LoadLevel(Application.loadedLevel);
+		}
 	}
 
 	void OnGUI () {
