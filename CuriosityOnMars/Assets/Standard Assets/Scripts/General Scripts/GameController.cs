@@ -33,7 +33,6 @@ public class GameController : MonoBehaviour
 		}
 
 		if (gameOver) {
-			print ("try again!");
 			//Application.LoadLevel(Application.loadedLevel);
 			if (win) {
 				gameOverText("You win!! Press Enter for the next level.");

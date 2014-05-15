@@ -465,9 +465,9 @@ GameObject:
   - 4: {fileID: 115140713}
   - 212: {fileID: 115140712}
   - 114: {fileID: 115140708}
-  - 65: {fileID: 115140711}
   - 114: {fileID: 115140709}
   - 114: {fileID: 115140710}
+  - 135: {fileID: 115140711}
   m_Layer: 0
   m_Name: attractor
   m_TagString: Attract
@@ -522,10 +522,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragging: 0
   gotMoveItems: 0
---- !u!65 &115140711
-BoxCollider:
+--- !u!135 &115140711
+SphereCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: 67a98c9712262a9489bbd3ea9b223f9e,
+  m_PrefabParentObject: {fileID: 13500000, guid: 67a98c9712262a9489bbd3ea9b223f9e,
     type: 2}
   m_PrefabInternal: {fileID: 493170512}
   m_GameObject: {fileID: 115140707}
@@ -533,7 +533,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &115140712
 SpriteRenderer:
@@ -1373,7 +1373,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 957520916}
   m_GameObject: {fileID: 524855215}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: .5

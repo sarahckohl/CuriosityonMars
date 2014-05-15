@@ -143,6 +143,56 @@ Prefab:
   m_RootGameObject: {fileID: 1918969870}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &112075211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 112075213}
+  - 132: {fileID: 112075212}
+  m_Layer: 0
+  m_Name: GUIGameOver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!132 &112075212
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 112075211}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: GameOverText
+  m_Anchor: 4
+  m_Alignment: 1
+  m_PixelOffset: {x: 0, y: 100}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &112075213
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 112075211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &115140707
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,9 +203,9 @@ GameObject:
   - 4: {fileID: 115140713}
   - 212: {fileID: 115140712}
   - 114: {fileID: 115140708}
-  - 65: {fileID: 115140711}
   - 114: {fileID: 115140709}
   - 114: {fileID: 115140710}
+  - 135: {fileID: 115140711}
   m_Layer: 0
   m_Name: attractor
   m_TagString: Attract
@@ -192,7 +242,7 @@ MonoBehaviour:
   range4: {fileID: 21300000, guid: 19858fe959d16bc4794c7888c173aeea, type: 3}
   range5: {fileID: 21300000, guid: 35f0d213381c496489983952bc483487, type: 3}
   range6: {fileID: 21300000, guid: 3004b5c292067a84ab963fff553b5b6a, type: 3}
-  rover: {fileID: 0}
+  rover: {fileID: 1930769566}
   collideAttract: 0
   activateAttract: 0
   attractRange: 4
@@ -210,10 +260,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragging: 0
   gotMoveItems: 0
---- !u!65 &115140711
-BoxCollider:
+--- !u!135 &115140711
+SphereCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: 67a98c9712262a9489bbd3ea9b223f9e,
+  m_PrefabParentObject: {fileID: 13500000, guid: 67a98c9712262a9489bbd3ea9b223f9e,
     type: 2}
   m_PrefabInternal: {fileID: 493170512}
   m_GameObject: {fileID: 115140707}
@@ -221,7 +271,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &115140712
 SpriteRenderer:
@@ -309,6 +359,10 @@ Prefab:
       propertyPath: attractRange
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 67a98c9712262a9489bbd3ea9b223f9e, type: 2}
+      propertyPath: rover
+      value: 
+      objectReference: {fileID: 1930769566}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67a98c9712262a9489bbd3ea9b223f9e, type: 2}
   m_RootGameObject: {fileID: 115140707}
@@ -522,7 +576,7 @@ MonoBehaviour:
   moveItems: 0
   win: 0
   lose: 0
-  endlevel: {fileID: 0}
+  endlevel: {fileID: 112075212}
 --- !u!4 &735499444
 Transform:
   m_ObjectHideFlags: 0
@@ -653,7 +707,6 @@ GameObject:
   - 114: {fileID: 961977816}
   - 114: {fileID: 961977814}
   - 135: {fileID: 961977815}
-  - 50: {fileID: 961977817}
   m_Layer: 0
   m_Name: Impass
   m_TagString: Impass
@@ -681,7 +734,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 1514021529}
   m_GameObject: {fileID: 961977813}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: .5
@@ -699,21 +752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cell_size: 1
---- !u!50 &961977817
-Rigidbody2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 961977813}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!212 &961977818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -745,7 +783,7 @@ Transform:
   m_PrefabInternal: {fileID: 1514021529}
   m_GameObject: {fileID: 961977813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 2, z: 0}
+  m_LocalPosition: {x: 4, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -871,7 +909,7 @@ GameObject:
   - 114: {fileID: 1193317321}
   m_Layer: 0
   m_Name: goal
-  m_TagString: passable
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -944,7 +982,7 @@ Transform:
   m_PrefabInternal: {fileID: 2051980472}
   m_GameObject: {fileID: 1193317320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 1, z: 0}
+  m_LocalPosition: {x: 4, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1024,7 +1062,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1435873736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 4.5, z: -13.9361038}
+  m_LocalPosition: {x: 5.5, y: 4.5, z: -13.9361038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1041,7 +1079,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6552dc9945402d148b2a16d29a16e550, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6552dc9945402d148b2a16d29a16e550, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1885,7 +1923,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1931,6 +1969,10 @@ Prefab:
     - target: {fileID: 6500000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
+      propertyPath: m_TagString
+      value: Goal
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
