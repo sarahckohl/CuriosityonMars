@@ -152,6 +152,7 @@ public class control_repel : MonoBehaviour {
 		}
 	}
 
+	/*
 	void OnTriggerEnter(Collider col) {
 		if (col.tag == "Player") {
 			//Debug.Log("repel collide");
@@ -160,5 +161,6 @@ public class control_repel : MonoBehaviour {
 			return;
 		}
 	} 
+	*/
 
 }

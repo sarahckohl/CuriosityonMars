@@ -34,13 +34,13 @@ public class control_rover : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		if (col.tag == "Attract" || col.tag == "Repel" || col.tag == "Impass") {
+		if ( col.tag == "Impass") {
 			Debug.Log("collide");
 			impassable = true;
 			return;
 		}
 		if (col.tag == "Destruct") {
-			if (col.transform.position == this.transform.position){
+			if (col.transform.position == gameObject.transform.position){
 				print ("destruct");
 				shouldMove = false;
 				gameController.lose = true;
