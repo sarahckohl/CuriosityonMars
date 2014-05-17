@@ -153,11 +153,21 @@ public class control_attractor : MonoBehaviour {
 		} 
 	}
 
+
+	bool LineofSight(){
+
+		if()
+		
+		
+			return false;
+	}
+
+
 	void OnTriggerEnter(Collider col) {
 		if (col.tag == "Player") {
 			Debug.Log("attract collide");
 			collideAttract = true;
-			Destroy(this);
+			//Destroy(this);
 			return;
 		}
 	} 
