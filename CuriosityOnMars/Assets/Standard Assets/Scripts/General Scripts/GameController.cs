@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
 	public GameObject[] Repels;
 	public GameObject[] Players;
 	public GameObject[] Impasses;
-	public GameObject[] Destruct;
+	public GameObject[] Destructs;
 
 	void Awake() {
 		Attracts = GameObject.FindGameObjectsWithTag("Attract");
@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 		Repels = GameObject.FindGameObjectsWithTag("Repel");
 		Players = GameObject.FindGameObjectsWithTag("Player");
 		Impasses = GameObject.FindGameObjectsWithTag("Impass");
-		Destruct = GameObject.FindGameObjectsWithTag("Destruct");
+		Destructs = GameObject.FindGameObjectsWithTag("Destruct");
 		
 		//GameObject[Attracts.Length+passables.Length+Repels.Length+Players.Length+Impasses.Length-5];
 		nooverlap = new GameObject[100];
@@ -44,8 +44,8 @@ public class GameController : MonoBehaviour
 		Impasses.CopyTo (nooverlap,currentlength);
 		currentlength += Impasses.Length;
 
-		Destruct.CopyTo (nooverlap,currentlength);
-		currentlength += Destruct.Length;
+		Destructs.CopyTo (nooverlap,currentlength);
+		currentlength += Destructs.Length;
 		/*
 		for (int i = 0; i < currentlength; i++){
 				//print (foo.transform.position.x+  ", " + foo.transform.position.y);
