@@ -17,6 +17,7 @@ public class control_rover : MonoBehaviour {
 	//public GameObject[] impasses;
 	public bool impassable = false;
 	private GameController gameController;
+	public GameObject currentInfluencer;
 	
 	
 	// Use this for initialization
@@ -34,7 +35,7 @@ public class control_rover : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		if ( col.tag == "Impass") {
+		if ( col.tag == "Impass" || col.tag == "Attract") {
 			Debug.Log("collide");
 			impassable = true;
 			return;
@@ -118,13 +119,14 @@ public class control_rover : MonoBehaviour {
 		}
 	}
 
+
 	private void OnEverySecond(object source, ElapsedEventArgs e)
 	{
 		//when placeStage is false, the rover can now move when it's on an impeller
 		//else if placeStage is true, it will not move
 		
 		// move the rover in the given direction
-		if (!gameController.placeStage && !impassable) {
+		if (!gameController.placeStage && !impassable && !gameController.gameOver) {
 			shouldMove = true;
 		}
 		if (impassable) {
