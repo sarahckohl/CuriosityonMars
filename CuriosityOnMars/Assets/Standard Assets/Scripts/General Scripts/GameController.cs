@@ -9,6 +9,50 @@ public class GameController : MonoBehaviour
 	public bool win = false;
 	public bool lose = false;
 	public GUIText endlevel;
+	public GameObject[] nooverlap;
+	public int currentlength = 0;
+	public GameObject[] Attracts;
+	public GameObject[] passables;
+	public GameObject[] Repels;
+	public GameObject[] Players;
+	public GameObject[] Impasses;
+	public GameObject[] Destruct;
+
+	void Awake() {
+		Attracts = GameObject.FindGameObjectsWithTag("Attract");
+		passables = GameObject.FindGameObjectsWithTag("passable");
+		Repels = GameObject.FindGameObjectsWithTag("Repel");
+		Players = GameObject.FindGameObjectsWithTag("Player");
+		Impasses = GameObject.FindGameObjectsWithTag("Impass");
+		Destruct = GameObject.FindGameObjectsWithTag("Destruct");
+		
+		//GameObject[Attracts.Length+passables.Length+Repels.Length+Players.Length+Impasses.Length-5];
+		nooverlap = new GameObject[100];
+		
+		Attracts.CopyTo (nooverlap,currentlength);
+		currentlength += Attracts.Length;
+		
+		passables.CopyTo (nooverlap,currentlength);
+		currentlength += passables.Length;
+		
+		Repels.CopyTo (nooverlap,currentlength);
+		currentlength += Repels.Length;
+		
+		Players.CopyTo (nooverlap,currentlength);
+		currentlength += Players.Length;
+		
+		Impasses.CopyTo (nooverlap,currentlength);
+		currentlength += Impasses.Length;
+
+		Destruct.CopyTo (nooverlap,currentlength);
+		currentlength += Destruct.Length;
+		/*
+		for (int i = 0; i < currentlength; i++){
+				//print (foo.transform.position.x+  ", " + foo.transform.position.y);
+			print (nooverlap[i].transform.position.x+  ", " + nooverlap[i].transform.position.y);
+		}
+		*/
+	}
 
 	// Use this for initialization
 	void Start ()
@@ -17,6 +61,36 @@ public class GameController : MonoBehaviour
 		placeStage = true;
 		moveItems = true;
 		endlevel.text = "";
+		/*
+		Attracts = GameObject.FindGameObjectsWithTag("Attract");
+		passables = GameObject.FindGameObjectsWithTag("passable");
+		Repels = GameObject.FindGameObjectsWithTag("Repel");
+		Players = GameObject.FindGameObjectsWithTag("Player");
+		Impasses = GameObject.FindGameObjectsWithTag("Impass");
+
+		//GameObject[Attracts.Length+passables.Length+Repels.Length+Players.Length+Impasses.Length-5];
+		nooverlap = new GameObject[100];
+
+		Attracts.CopyTo (nooverlap,currentlength);
+		currentlength += Attracts.Length;
+		
+		passables.CopyTo (nooverlap,currentlength);
+		currentlength += passables.Length;
+		
+		Repels.CopyTo (nooverlap,currentlength);
+		currentlength += Repels.Length;
+		
+		Players.CopyTo (nooverlap,currentlength);
+		currentlength += Players.Length;
+		
+		Impasses.CopyTo (nooverlap,currentlength);
+		currentlength += Impasses.Length;
+		*/
+
+
+		//foreach (GameObject foo in nooverlap){
+		//	print (foo.transform.position.x+  ", " + foo.transform.position.y);
+		//}
 	}
 	
 	// Update is called once per frame

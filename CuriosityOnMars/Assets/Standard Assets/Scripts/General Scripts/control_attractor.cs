@@ -19,6 +19,8 @@ public class control_attractor : MonoBehaviour {
 	float roverDistancey;
 	GameObject[] tiles;
 	GameObject[] nooverlap;
+	private GameController gameController;
+	GameObject gameControllerObject;
 	// Use this for initialization
 	void Start () {
 
@@ -27,7 +29,18 @@ public class control_attractor : MonoBehaviour {
 		hover = false;
 		tiles = GameObject.FindGameObjectsWithTag("map");
 
+		if (gameControllerObject == null) {
+			gameControllerObject = GameObject.FindWithTag ("GameController");
+		}
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
 
+		print (gameController.currentlength);
+		for (int i = 0; i < gameController.currentlength; i++){
+			//print (foo.transform.position.x+  ", " + foo.transform.position.y);
+			print (gameController.nooverlap[i].transform.position.x+  ", " + gameController.nooverlap[i].transform.position.y);
+		}
 
 		//originalColor = tiles [1].renderer.material.color;
 		originalColor = Color.clear;
@@ -36,13 +49,16 @@ public class control_attractor : MonoBehaviour {
 			spriteRenderer.sprite = range3; // set the sprite to sprite1
 		}
 		else if (attractRange == 4){
-			spriteRenderer.sprite = range4;
+			//spriteRenderer.sprite = range4;
+			gameObject.renderer.material.color = new Color(.1f, 1, .1f);
 		}
 		else if (attractRange == 5){
-			spriteRenderer.sprite = range5;
+			//spriteRenderer.sprite = range5;
+			gameObject.renderer.material.color = new Color(.973f, .153f, .984f);
 		}
-		else if (attractRange == 6){
-			spriteRenderer.sprite = range6;
+		else if (attractRange >= 6){
+			//spriteRenderer.sprite = range6;
+			gameObject.renderer.material.color = new Color(0,.851f, .965f);
 		}
 		collideAttract = false;
 		gameObject.tag = "Attract";
@@ -99,6 +115,16 @@ public class control_attractor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		/*
+		if (gameControllerObject == null) {
+			gameControllerObject = GameObject.FindWithTag ("GameController");
+		}
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
+		*/
+	
+		//print (gameController.currentlength);
 
 		if (this.transform.position.y <= 2)
 						return;
@@ -156,11 +182,14 @@ public class control_attractor : MonoBehaviour {
 
 	bool LineofSight(){
 
-		if()
-		
-		
-			return false;
+		for (int i = 1; i <= gameController.Impasses.Length; i++){
+			if(gameController.Impasses[i].transform.position == this.transform.position) {
+
+			}
+		}
+		return false;
 	}
+
 
 
 	void OnTriggerEnter(Collider col) {
