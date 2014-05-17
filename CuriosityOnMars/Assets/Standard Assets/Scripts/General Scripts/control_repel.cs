@@ -36,12 +36,18 @@ public class control_repel : MonoBehaviour {
 
 	void OnMouseEnter(){
 		hover = true;
-	//	print ("hover= "+hover+", attractor range:"+attractRange);
+		
+		/*foreach (GameObject tile in tiles) {
+		if(tile.renderer.material.color!=Color.clear)		
+				return;
+		}*/
 		
 		foreach (GameObject tile in tiles) {
 			
+			
 			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
 			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
+			
 			
 			if( (tile.transform.position.x==this.transform.position.x && tileDistancey <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancex <= attractRange) )
 				tile.renderer.material.color = mouseOverColor;	
@@ -55,29 +61,25 @@ public class control_repel : MonoBehaviour {
 	void OnMouseDown()	
 	{	
 		foreach (GameObject tile in tiles) {
-			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
-			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
+			//float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
+			//float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
 			
-			if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
-				tile.renderer.material.color = originalColor;
+			//if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
+			tile.renderer.material.color = originalColor;
 		}
 	}
 	
 	
 	void OnMouseExit(){
 		hover = false;
-		//print ("hover= "+hover+", attractor range:"+attractRange);
-		
-		
 		
 		foreach (GameObject tile in tiles) {
-			float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
-			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
+			//float tileDistancex = Mathf.Abs (Mathf.Abs (tile.transform.position.x) - Mathf.Abs (this.transform.position.x));
+			//float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
 			
-			if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
-				tile.renderer.material.color = originalColor;
+			//if( (tile.transform.position.x==this.transform.position.x && tileDistancex <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancey <= attractRange) )
+			tile.renderer.material.color = originalColor;
 		}
-		
 	}
 
 
