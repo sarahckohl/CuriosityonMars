@@ -16,16 +16,16 @@ public class control_rover : MonoBehaviour {
 	//public GameObject[] attractors;
 	//public GameObject[] impasses;
 	public bool impassable = false;
-	private GameController gameController;
+	//private GameController GameController;
 	public GameObject currentInfluencer;
 	
 	
 	// Use this for initialization
 	void Start () {
-		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		if (gameControllerObject != null) {
-			gameController = gameControllerObject.GetComponent <GameController>();
-		}
+		/*GameObject GameControllerObject = GameObject.FindWithTag ("GameController");
+		if (GameControllerObject != null) {
+			GameController = GameControllerObject.GetComponent <GameController>();
+		}*/
 		movementTimer = new System.Timers.Timer (1000);
 		movementTimer.Elapsed += new ElapsedEventHandler (OnEverySecond);
 		movementTimer.Enabled = true;
@@ -44,9 +44,9 @@ public class control_rover : MonoBehaviour {
 			if (col.transform.position == gameObject.transform.position){
 				print ("destruct");
 				shouldMove = false;
-				gameController.lose = true;
-				gameController.win = false;
-				gameController.gameOver = true;
+				GameController.lose = true;
+				GameController.win = false;
+				GameController.gameOver = true;
 				//Application.LoadLevel(Application.loadedLevel);
 				//rover_gameover.SetBool("collide_destruct", true);
 			}
@@ -59,7 +59,11 @@ public class control_rover : MonoBehaviour {
 		// lower right: 8, 3
 		// upper left: 1, 8
 		// upper right: 8, 8
-		
+
+
+		//print (this == GameController.Players [0]);
+
+
 		// will move once a second in the given direction, unless it is outside of its boundary
 		if (dir != Direction.Stop && shouldMove) 
 		{
@@ -126,7 +130,7 @@ public class control_rover : MonoBehaviour {
 		//else if placeStage is true, it will not move
 		
 		// move the rover in the given direction
-		if (!gameController.placeStage && !impassable && !gameController.gameOver) {
+		if (!GameController.placeStage && !impassable && !GameController.gameOver) {
 			shouldMove = true;
 		}
 		if (impassable) {
