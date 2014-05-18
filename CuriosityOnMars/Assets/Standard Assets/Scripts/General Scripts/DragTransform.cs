@@ -10,18 +10,24 @@ class DragTransform : MonoBehaviour
 	private float distance;
 	//private GameController GameController;
 	private Vector3 screenPoint;
+	private bool canMove;
 	
 	void Start()
 	{
+		//originalColor = renderer.material.color;
+		if (gameObject.transform.position.y == 0)
+			canMove = true;
+		else
+			canMove = false;
 		originalColor = gameObject.renderer.material.color;
 
 		//GameObject GameControllerObject = GameObject.FindWithTag ("GameController");
 		//if (GameControllerObject != null) {
-			//GameController = GameControllerObject.GetComponent <GameController>();
-			if (GameController.moveItems) {
-				//for testing to make sure that the gamecontroller vool is passing through
-				gotMoveItems = true;
-			}
+		//GameController = GameControllerObject.GetComponent <GameController>();
+		if (GameController.moveItems) {
+			//for testing to make sure that the gamecontroller vool is passing through
+			gotMoveItems = true;
+		}
 		//}
 	}
 	
@@ -41,7 +47,7 @@ class DragTransform : MonoBehaviour
 	
 	void OnMouseDown()	
 	{	
-		if (GameController.moveItems) {
+		if (GameController.moveItems && canMove) {
 			//distance = Vector3.Distance (transform.position, Camera.main.transform.position);
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 			dragging = true;
@@ -49,7 +55,7 @@ class DragTransform : MonoBehaviour
 	}
 	
 	void OnMouseDrag () {
-		if (GameController.moveItems) {
+		if (GameController.moveItems && canMove) {
 			Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 			Vector3 currentPos = Camera.main.ScreenToWorldPoint(currentScreenPoint);
 			transform.position = currentPos;
