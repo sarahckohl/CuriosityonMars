@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\General Scripts\GameController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\General Scripts\DragTransform.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\GameController.cs" Line="155" Column="6" />
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\control_rover.cs" Line="150" Column="6" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\DragTransform.cs" Line="23" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
