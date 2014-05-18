@@ -1087,7 +1087,7 @@ Prefab:
     - target: {fileID: 21200000, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9dea2c411e7f69b40bd294316ccb39db,
+      objectReference: {fileID: 21300000, guid: bde97a08551803c4ebd08cb090630558,
         type: 3}
     - target: {fileID: 11400002, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
       propertyPath: leftImage
@@ -1949,7 +1949,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 9dea2c411e7f69b40bd294316ccb39db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bde97a08551803c4ebd08cb090630558, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1930769570
 Transform:
