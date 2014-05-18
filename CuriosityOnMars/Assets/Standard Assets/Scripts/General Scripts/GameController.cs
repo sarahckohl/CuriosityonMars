@@ -57,6 +57,10 @@ public class GameController : MonoBehaviour
 			print (nooverlap[i].transform.position.x+  ", " + nooverlap[i].transform.position.y);
 		}
 		*/
+		gameOverText("");
+		win = false;
+		lose = false;
+		gameOver = false;
 	}
 
 	// Use this for initialization
@@ -116,15 +120,19 @@ public class GameController : MonoBehaviour
 			if (win) {
 				gameOverText("You win!! Press Enter for the next level.");
 				if (Input.GetKey (KeyCode.Return)) {
+					gameOverText("");
+					gameOver = false;
+					print ("print1");
 					Application.LoadLevel(Application.loadedLevel + 1);
-					endlevel.text = "";
 				}
 			}
 			else if (lose) {
 				gameOverText("You fell into a pit! Press Enter to try again.");
 				if (Input.GetKey (KeyCode.Return)) {
+					gameOverText("");
+					gameOver = false;
+					print ("print2");
 					Application.LoadLevel(Application.loadedLevel);
-					endlevel.text = "";
 				}
 			}
 		}
@@ -133,6 +141,8 @@ public class GameController : MonoBehaviour
 	void OnGUI () {
 		//not sure why the numbers are doubled when the game runs though..
 		if(GUI.Button(new Rect(0,0,50,30), "Reset")) {
+			gameOverText("");
+			gameOver = false;
 			Application.LoadLevel(Application.loadedLevel);
 			//print ("reset!!");
 		}
