@@ -1746,7 +1746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endlevel: {fileID: 1170890942}
-  rover: {fileID: 0}
+  rover: {fileID: 1930769566}
 --- !u!4 &735499444
 Transform:
   m_ObjectHideFlags: 0
@@ -3504,7 +3504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca08e8cc1b3f8e149a68e54b89f5f16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dir: 3
+  dir: 1
   rover: {fileID: 1930769566}
 --- !u!212 &1521830490
 SpriteRenderer:
@@ -3638,7 +3638,7 @@ Prefab:
       objectReference: {fileID: 1930769566}
     - target: {fileID: 11400002, guid: ff4d60bbfa21e9645a4d873783acff45, type: 2}
       propertyPath: dir
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff4d60bbfa21e9645a4d873783acff45, type: 2}
