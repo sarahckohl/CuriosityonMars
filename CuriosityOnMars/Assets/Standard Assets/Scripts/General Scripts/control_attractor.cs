@@ -8,6 +8,7 @@ public class control_attractor : MonoBehaviour {
 	public Sprite range6;
 	private Color mouseOverColor = Color.cyan;
 	private Color originalColor;
+	private Color rangeColor;
 	private SpriteRenderer spriteRenderer; 
 	public control_rover rover;
 	public bool collideAttract = false;
@@ -19,8 +20,8 @@ public class control_attractor : MonoBehaviour {
 	float roverDistancey;
 	GameObject[] tiles;
 	GameObject[] nooverlap;
-	//private GameController GameController;
-	//GameObject GameControllerObject;
+	private GameController GameController;
+	GameObject GameControllerObject;
 	// Use this for initialization
 
 	void Awake () {
@@ -30,18 +31,20 @@ public class control_attractor : MonoBehaviour {
 		spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
 		if (spriteRenderer.sprite == null){ // if the sprite on spriteRenderer is null then
 			spriteRenderer.sprite = range3; // set the sprite to sprite1
+
+			rangeColor = gameObject.renderer.material.color;
 		}
 		else if (attractRange == 4){
 			//spriteRenderer.sprite = range4;
-			gameObject.renderer.material.color = new Color(1, .1f, .1f);
+			gameObject.renderer.material.color = rangeColor = new Color(1, .1f, .1f);
 		}
 		else if (attractRange == 5){
 			//spriteRenderer.sprite = range5;
-			gameObject.renderer.material.color = new Color(.973f, .153f, .984f);
+			gameObject.renderer.material.color = rangeColor = new Color(.973f, .153f, .984f);
 		}
 		else if (attractRange >= 6){
 			//spriteRenderer.sprite = range6;
-			gameObject.renderer.material.color = new Color(0,.851f, .965f);
+			gameObject.renderer.material.color = rangeColor = new Color(0,.851f, .965f);
 		}
 	}
 
@@ -50,14 +53,14 @@ public class control_attractor : MonoBehaviour {
 
 		hover = false;
 		tiles = GameObject.FindGameObjectsWithTag("map");
-		/*
+
 		if (GameControllerObject == null) {
 			GameControllerObject = GameObject.FindWithTag ("GameController");
 		}
 		if (GameControllerObject != null) {
 			GameController = GameControllerObject.GetComponent <GameController>();
 		}
-		*/
+
 		//print (GameController.currentlength);
 		//for (int i = 0; i < GameController.currentlength; i++){
 			//print (foo.transform.position.x+  ", " + foo.transform.position.y);
@@ -154,7 +157,7 @@ public class control_attractor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (this.transform.position.y <= 2)
+		if (this.transform.position.y < 1)
 						return;
 
 		roverDistancex = Mathf.Abs (Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x));

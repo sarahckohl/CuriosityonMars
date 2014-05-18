@@ -9,18 +9,19 @@ public class GameController : MonoBehaviour
 	public static bool win = false;
 	public static bool lose = false;
 	public GUIText endlevel;
-	public static int currentlength = 0;
-	public static GameObject[] Attracts;
-	public static GameObject[] passables;
-	public static GameObject[] Repels;
-	public static GameObject[] Players;
-	public static GameObject[] Impasses;
-	public static GameObject[] Destructs;
-	public static GameObject[] nooverlap;
-	public static GameObject[] Impassables;
+	public int currentlength = 0;
+	public GameObject[] Attracts;
+	public GameObject[] passables;
+	public GameObject[] Repels;
+	public GameObject[] Players;
+	public GameObject[] Impasses;
+	public GameObject[] Destructs;
+	public GameObject[] nooverlap;
+	public GameObject[] Impassables;
 	private Vector3 initialRoverPosition;
 	public control_rover rover;
 	public GameObject currentInfluencer;
+
 
 	void Awake() {
 		initialRoverPosition = rover.transform.position;
