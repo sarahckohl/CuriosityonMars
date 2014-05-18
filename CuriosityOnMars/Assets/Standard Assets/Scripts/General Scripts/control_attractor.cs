@@ -43,7 +43,6 @@ public class control_attractor : MonoBehaviour {
 	}
 
 	void Start () {
-
 		originalPosition = this.transform.position;
 
 		hover = false;
@@ -205,116 +204,116 @@ public class control_attractor : MonoBehaviour {
 	bool LineofSight(string roverDirection){
 		if (roverDirection.Equals("left")) {
 			int currentX = (int)this.transform.position.x-1;
-			print ("currentX: " + currentX);
+			//print ("currentX: " + currentX);
 			//print ("rover: " + rover.transform.position.x);
 
 			while (currentX > rover.transform.position.x) {
 				for (int i = 0; i < GameController.Impasses.Length; i++){
-					if(currentX == (int)GameController.Impasses[i].transform.position.x) { 
-						print ("impasses");
+					if(currentX == (int)GameController.Impasses[i].transform.position.x  && this.transform.position.y == (int)GameController.Impasses[i].transform.position.y) { 
+						//print ("impasses");
 						return false;
 					}
 				}
 				for (int i = 0; i < GameController.Repels.Length; i++){
-					if(currentX == (int)GameController.Repels[i].transform.position.x) {
-						print ("repels");
+					if(currentX == (int)GameController.Repels[i].transform.position.x  && this.transform.position.y == (int)GameController.Repels[i].transform.position.y) {
+						//print ("repels");
 						return false;
 					}
 				}
 				for (int i = 0; i < GameController.Attracts.Length; i++){
-					if(currentX == (int)GameController.Attracts[i].transform.position.x && GameController.Attracts[i] != this) {
-						print ("attracts");
+					if(currentX == (int)GameController.Attracts[i].transform.position.x  && this.transform.position.y == (int)GameController.Attracts[i].transform.position.y && GameController.Attracts[i] != this) {
+						//print ("attracts");
 						return false;
 					}
 				}
-				print (currentX);
+				//print (currentX);
 				currentX-=1;
 			}
 		}
 
 		if (roverDirection.Equals("right")) {
 			int currentX = (int)this.transform.position.x+1;
-			print ("currentX: " + currentX);
+			//print ("currentX: " + currentX);
 			//print ("rover: " + rover.transform.position.x);
 			
 			while (currentX < rover.transform.position.x) {
 				for (int i = 0; i < GameController.Impasses.Length; i++){
-					if(currentX == (int)GameController.Impasses[i].transform.position.x) { 
-						print ("impasses");
+					if(currentX == (int)GameController.Impasses[i].transform.position.x && this.transform.position.y == (int)GameController.Impasses[i].transform.position.y) { 
+						//print ("impasses");
 						return false;
 					}
 				}
 				for (int i = 0; i < GameController.Repels.Length; i++){
-					if(currentX == (int)GameController.Repels[i].transform.position.x) {
-						print ("repels");
+					if(currentX == (int)GameController.Repels[i].transform.position.x && this.transform.position.y == (int)GameController.Repels[i].transform.position.y) {
+						//print ("repels");
 						return false;
 					}
 				}
 				for (int i = 0; i < GameController.Attracts.Length; i++){
-					if(currentX == (int)GameController.Attracts[i].transform.position.x && GameController.Attracts[i] != this) {
-						print ("attracts");
+					if(currentX == (int)GameController.Attracts[i].transform.position.x  && this.transform.position.y == (int)GameController.Attracts[i].transform.position.y && GameController.Attracts[i] != this) {
+						//print ("attracts");
 						return false;
 					}
 				}
-				print (currentX);
+				//print (currentX);
 				currentX+=1;
 			}
 		}
 
 		if (roverDirection.Equals("up")) {
 			int currentY = (int)this.transform.position.y+1;
-			print ("currentY: " + currentY);
+			//print ("currentY: " + currentY);
 			//print ("rover: " + rover.transform.position.x);
 			
 			while (currentY < rover.transform.position.y) {
 				for (int i = 0; i < GameController.Impasses.Length; i++){
-					if(currentY == (int)GameController.Impasses[i].transform.position.y) { 
-						print ("impasses");
+					if(currentY == (int)GameController.Impasses[i].transform.position.y  && this.transform.position.x == (int)GameController.Impasses[i].transform.position.x) { 
+						//print ("impasses");
 						return false;
 					}
 				}
 				for (int i = 0; i < GameController.Repels.Length; i++){
-					if(currentY == (int)GameController.Repels[i].transform.position.y) {
-						print ("repels");
+					if(currentY == (int)GameController.Repels[i].transform.position.y  && this.transform.position.x == (int)GameController.Repels[i].transform.position.x) {
+						//print ("repels");
 						return false;
 					}
 				}
 				for (int i = 0; i < GameController.Attracts.Length; i++){
-					if(currentY == (int)GameController.Attracts[i].transform.position.y && GameController.Attracts[i] != this) {
-						print ("attracts");
+					if(currentY == (int)GameController.Attracts[i].transform.position.y  && this.transform.position.x == (int)GameController.Attracts[i].transform.position.x && GameController.Attracts[i] != this) {
+						//print ("attracts");
 						return false;
 					}
 				}
-				print (currentY);
+				//print (currentY);
 				currentY+=1;
 			}
 		}
 
 		if (roverDirection.Equals("down")) {
 			int currentY = (int)this.transform.position.y-1;
-			print ("currentY: " + currentY);
+			//print ("currentY: " + currentY);
 			//print ("rover: " + rover.transform.position.x);
 			
 			while (currentY > rover.transform.position.y) {
 				for (int i = 0; i < GameController.Impasses.Length; i++){
-					if(currentY == (int)GameController.Impasses[i].transform.position.y) { 
-						print ("impasses");
+					if(currentY == (int)GameController.Impasses[i].transform.position.y  && this.transform.position.x == (int)GameController.Impasses[i].transform.position.x) { 
+						//print ("impasses");
 						return false;
 					}
 				}
 				for (int i = 0; i < GameController.Repels.Length; i++){
-					if(currentY == (int)GameController.Repels[i].transform.position.y) {
-						print ("repels");
+					if(currentY == (int)GameController.Repels[i].transform.position.y  && this.transform.position.x == (int)GameController.Repels[i].transform.position.x) {
+						//print ("repels");
 						return false;
 					}
 				}
 				for (int i = 0; i < GameController.Attracts.Length; i++){
-					if(currentY == (int)GameController.Attracts[i].transform.position.y && GameController.Attracts[i] != this) {
-						print ("attracts");
+					if(currentY == (int)GameController.Attracts[i].transform.position.y  && this.transform.position.x == (int)GameController.Attracts[i].transform.position.x && GameController.Attracts[i] != this) {
+						//print ("attracts");
 						return false;
 					}
 				}
-				print (currentY);
+				//print (currentY);
 				currentY-=1;
 			}
 		}

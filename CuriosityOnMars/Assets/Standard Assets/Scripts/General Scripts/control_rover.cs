@@ -85,9 +85,11 @@ public class control_rover : MonoBehaviour {
 					//if(!impassable){
 						//print (this.transform.position.x + ", " + GameController.Impasses[1].transform.position.x);
 						for (int i = 0; i < GameController.Impassables.Length; i++){
-							if(this.transform.position.x+1 == (int)GameController.Impassables[i].transform.position.x) { 
+							if(this.transform.position.x+1 == (int)GameController.Impassables[i].transform.position.x
+						   && this.transform.position.y == (int)GameController.Impassables[i].transform.position.y) { 
 								//if (this.transform.position.x+1){
 								impassable = true;
+								break;
 							}else{
 								impassable = false;
 							}
@@ -104,12 +106,15 @@ public class control_rover : MonoBehaviour {
 					// make sure there is not an impasse to the left.
 					gameObject.transform.eulerAngles = new Vector3(0,0,90);
 					//if(!impassable){
-					print(this.transform.position.x + ", " + this.transform.position.y + "  " + (int)GameController.Impasses[0].transform.position.x + ", " + (int)GameController.Impasses[0].transform.position.y);
-					print (impassable);
+					//print(this.transform.position.x + ", " + this.transform.position.y + "  " + (int)GameController.Impasses[0].transform.position.x + ", " + (int)GameController.Impasses[0].transform.position.y);
+					//print (impassable);
+					//print (this.transform.position.x-1 + ", " + GameController.Attracts[0].transform.position.x);
 					for (int i = 0; i < GameController.Impassables.Length; i++){
-						if(this.transform.position.x-1 == (int)GameController.Impassables[i].transform.position.x) { 
+						if(this.transform.position.x-1 == (int)GameController.Impassables[i].transform.position.x
+						   && this.transform.position.y == (int)GameController.Impassables[i].transform.position.y) { 
 							//if (this.transform.position.x+1){
 							impassable = true;
+							break;
 						}else{
 							impassable = false;
 						}
@@ -121,7 +126,7 @@ public class control_rover : MonoBehaviour {
 			}else if(this.dir == Direction.Up)
 			{
 				// keep its boundary
-				if (this.transform.position.y < 9)
+				if (this.transform.position.y < 10)
 				{
 					// make sure there is not an impasse upwards
 					gameObject.transform.eulerAngles = new Vector3(0,0,0);
@@ -129,9 +134,10 @@ public class control_rover : MonoBehaviour {
 					print (this.transform.position.x + ", " + (int)GameController.Impasses[0].transform.position.x);
 					for (int i = 0; i < GameController.Impassables.Length; i++){
 						if(this.transform.position.y+1 == (int)GameController.Impassables[i].transform.position.y 
-						   /*&& this.transform.position.x == (int)GameController.Impassables[i].transform.position.x*/) { 
+						   && this.transform.position.x == (int)GameController.Impassables[i].transform.position.x) { 
 							//if (this.transform.position.x+1){
 							impassable = true;
+							break;
 						}else{
 							impassable = false;
 						}
@@ -151,9 +157,10 @@ public class control_rover : MonoBehaviour {
 					for (int i = 0; i < GameController.Impassables.Length; i++){
 						print (this.transform.position.y + ", " + GameController.Impasses[0].transform.position.y);
 						if(this.transform.position.y-1 == (int)GameController.Impassables[i].transform.position.y
-						   /*&& this.transform.position.x == (int)GameController.Impassables[i].transform.position.x*/) { 
+						   && this.transform.position.x == (int)GameController.Impassables[i].transform.position.x) { 
 							//if (this.transform.position.x+1){
 							impassable = true;
+							break;
 						}else{
 							impassable = false;
 						}
