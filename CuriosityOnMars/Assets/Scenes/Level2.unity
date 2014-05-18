@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endlevel: {fileID: 112075212}
+  rover: {fileID: 1930769566}
 --- !u!4 &735499444
 Transform:
   m_ObjectHideFlags: 0

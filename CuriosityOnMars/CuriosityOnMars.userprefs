@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\General Scripts\control_menu.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\General Scripts\GameController.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\control_menu.cs" Line="44" Column="4" />
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\GameController.cs" Line="32" Column="12" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\GameController.cs" Line="155" Column="6" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\control_rover.cs" Line="150" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
