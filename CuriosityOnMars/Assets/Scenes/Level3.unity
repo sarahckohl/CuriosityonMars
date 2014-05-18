@@ -1746,7 +1746,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endlevel: {fileID: 1170890942}
+  currentlength: 0
+  Attracts: []
+  passables: []
+  Repels: []
+  Players: []
+  Impasses: []
+  Destructs: []
+  nooverlap: []
+  Impassables: []
   rover: {fileID: 1930769566}
+  currentInfluencer: {fileID: 0}
+  resetButton: {fileID: 2800000, guid: 06ae11d9560ec3c4c85483e8285242fd, type: 3}
 --- !u!4 &735499444
 Transform:
   m_ObjectHideFlags: 0

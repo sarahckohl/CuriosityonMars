@@ -21,8 +21,9 @@ public class GameController : MonoBehaviour
 	private Vector3 initialRoverPosition;
 	public control_rover rover;
 	public GameObject currentInfluencer;
-
-
+	public Texture resetButton;
+	
+	
 	void Awake() {
 		initialRoverPosition = rover.transform.position;
 		Attracts = GameObject.FindGameObjectsWithTag("Attract");
@@ -37,7 +38,7 @@ public class GameController : MonoBehaviour
 		Attracts.CopyTo (Impassables, 0);
 		Repels.CopyTo (Impassables, Attracts.Length);
 		Impasses.CopyTo (Impassables, (Attracts.Length + Repels.Length));
-
+		
 		nooverlap = new GameObject[100];
 		Attracts.CopyTo (nooverlap,currentlength);
 		currentlength += Attracts.Length;
@@ -53,7 +54,7 @@ public class GameController : MonoBehaviour
 		
 		Impasses.CopyTo (nooverlap,currentlength);
 		currentlength += Impasses.Length;
-
+		
 		Destructs.CopyTo (nooverlap,currentlength);
 		currentlength += Destructs.Length;
 		/*
@@ -67,7 +68,7 @@ public class GameController : MonoBehaviour
 		lose = false;
 		gameOver = false;
 	}
-
+	
 	// Use this for initialization
 	void Start ()
 	{
@@ -100,8 +101,8 @@ public class GameController : MonoBehaviour
 		Impasses.CopyTo (nooverlap,currentlength);
 		currentlength += Impasses.Length;
 		*/
-
-
+		
+		
 		//foreach (GameObject foo in nooverlap){
 		//	print (foo.transform.position.x+  ", " + foo.transform.position.y);
 		//}
@@ -119,7 +120,7 @@ public class GameController : MonoBehaviour
 			//print ("can't place objects");
 			endlevel.text = "";
 		}
-
+		
 		if (gameOver) {
 			//Application.LoadLevel(Application.loadedLevel);
 			if (win) {
@@ -142,10 +143,10 @@ public class GameController : MonoBehaviour
 			}
 		}
 	}
-
+	
 	void OnGUI () {
 		//not sure why the numbers are doubled when the game runs though..
-		if(GUI.Button(new Rect(0,0,50,30), "Reset")) {
+		if(GUI.Button(new Rect(0,0,resetButton.width,resetButton.height), resetButton)) {
 			gameOverText("");
 			gameOver = false;
 			rover.transform.position = initialRoverPosition;
@@ -158,11 +159,11 @@ public class GameController : MonoBehaviour
 			//print ("reset!!");
 		}
 	}
-
+	
 	public void gameOverText(string reason)
 	{
 		endlevel.text = reason;
 	}
-
+	
 }
 
