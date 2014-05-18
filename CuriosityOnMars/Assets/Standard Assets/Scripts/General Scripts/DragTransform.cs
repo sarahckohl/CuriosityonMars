@@ -14,16 +14,13 @@ class DragTransform : MonoBehaviour
 	
 	void Start()
 	{
-<<<<<<< HEAD
 		//originalColor = renderer.material.color;
 		if (gameObject.transform.position.y == 0)
 			canMove = true;
 		else
 			canMove = false;
-=======
 		originalColor = gameObject.renderer.material.color;
 
->>>>>>> origin/master
 		//GameObject GameControllerObject = GameObject.FindWithTag ("GameController");
 		//if (GameControllerObject != null) {
 		//GameController = GameControllerObject.GetComponent <GameController>();
