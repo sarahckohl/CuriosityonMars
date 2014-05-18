@@ -28,6 +28,7 @@ public class control_menu : MonoBehaviour {
 	}
 
 	void OnGUI () {
+		GUI.backgroundColor = new Color(0,0,0,0);
 		//not sure why the numbers are doubled when the game runs though..
 		if (!drawInstructions && !drawCredits) 
 		{
