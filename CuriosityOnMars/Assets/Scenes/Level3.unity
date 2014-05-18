@@ -2896,7 +2896,7 @@ GameObject:
   - 114: {fileID: 1193317321}
   m_Layer: 0
   m_Name: goal
-  m_TagString: Goal
+  m_TagString: passable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4881,7 +4881,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
       propertyPath: m_TagString
-      value: Goal
+      value: passable
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: e972eeda13cd0b1418454dcbeebc96c0, type: 2}
