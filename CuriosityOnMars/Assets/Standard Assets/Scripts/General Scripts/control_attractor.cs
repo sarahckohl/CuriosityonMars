@@ -56,11 +56,11 @@ public class control_attractor : MonoBehaviour {
 			GameController = GameControllerObject.GetComponent <GameController>();
 		}
 		*/
-		print (GameController.currentlength);
-		for (int i = 0; i < GameController.currentlength; i++){
+		//print (GameController.currentlength);
+		//for (int i = 0; i < GameController.currentlength; i++){
 			//print (foo.transform.position.x+  ", " + foo.transform.position.y);
-			print (GameController.nooverlap[i].transform.position.x+  ", " + GameController.nooverlap[i].transform.position.y);
-		}
+		//	print (GameController.nooverlap[i].transform.position.x+  ", " + GameController.nooverlap[i].transform.position.y);
+		//}
 
 		//originalColor = tiles [1].renderer.material.color;
 		originalColor = Color.clear;
@@ -203,16 +203,6 @@ public class control_attractor : MonoBehaviour {
 
 
 	bool LineofSight(string roverDirection){
-//		switch (direction) {
-//		case "right":
-//			break;
-//		case "left":
-//			break;
-//		case "up":
-//			break;
-//		case "down":
-//			break;
-//		}
 		if (roverDirection.Equals("left")) {
 			int currentX = (int)this.transform.position.x-1;
 			print ("currentX: " + currentX);

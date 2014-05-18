@@ -49,7 +49,7 @@ public class control_repel : MonoBehaviour {
 			float tileDistancey = Mathf.Abs (Mathf.Abs (tile.transform.position.y) - Mathf.Abs (this.transform.position.y));
 			
 			
-			if( (tile.transform.position.x==this.transform.position.x && tileDistancey <= attractRange) || (tile.transform.position.y==this.transform.position.y && tileDistancex <= attractRange) )
+			if( (tile.transform.position.x==this.transform.position.x && tileDistancey <= attractRange-1) || (tile.transform.position.y==this.transform.position.y && tileDistancex <= attractRange-1) )
 				tile.renderer.material.color = mouseOverColor;	
 		}
 		
@@ -105,10 +105,14 @@ public class control_repel : MonoBehaviour {
 			//	print ("mathx: " + Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)));
 				if (rover.transform.position.x > this.transform.position.x) {
 					//checks if rover.x is greater than this.x for left or right
-					rover.dir = control_rover.Direction.Right;
+					if (LineofSight("right")) {
+						rover.dir = control_rover.Direction.Right;
+					}
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.x) - Mathf.Abs ((int)this.transform.position.x)), "Left");
 				} else if (rover.transform.position.x < this.transform.position.x){
-					rover.dir = control_rover.Direction.Left;
+					if (LineofSight("left")) {
+						rover.dir = control_rover.Direction.Left;
+					}
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.x) - Mathf.Abs ((int)this.transform.position.x)), "Right");
 				}
 				if (Mathf.Abs(Mathf.Abs (rover.transform.position.x) - Mathf.Abs (this.transform.position.x)) == attractRange && activateRepel){
@@ -132,10 +136,14 @@ public class control_repel : MonoBehaviour {
 				//print ("mathy: " + Mathf.Abs(Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)));
 				if (rover.transform.position.y > this.transform.position.y) {
 					//checks if rover.y is greater than this.y for up or down
-					rover.dir = control_rover.Direction.Up;
+					if (LineofSight("up")){
+						rover.dir = control_rover.Direction.Up;
+					}
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.y) - Mathf.Abs ((int)this.transform.position.y)), "Down");
 				} else if (rover.transform.position.y < this.transform.position.y) {
-					rover.dir = control_rover.Direction.Down;
+					if (LineofSight("down")){
+						rover.dir = control_rover.Direction.Down;
+					}
 					//moveRoverNumSpaces ((Mathf.Abs ((int)rover.transform.position.y) - Mathf.Abs ((int)this.transform.position.y)), "Up");
 				}
 				if (Mathf.Abs(Mathf.Abs (rover.transform.position.y) - Mathf.Abs (this.transform.position.y)) == attractRange && activateRepel){
@@ -154,15 +162,141 @@ public class control_repel : MonoBehaviour {
 		}
 	}
 
-	/*
-	void OnTriggerEnter(Collider col) {
-		if (col.tag == "Player") {
-			//Debug.Log("repel collide");
-			collideRepel = true;
-			activateRepel = false;
-			return;
+	bool LineofSight(string roverDirection){
+		if (roverDirection.Equals("left")) {
+			int currentX = (int)this.transform.position.x-1;
+			print ("currentX: " + currentX);
+			//print ("rover: " + rover.transform.position.x);
+			
+			while (currentX > rover.transform.position.x) {
+				for (int i = 0; i < GameController.Impasses.Length; i++){
+					if(currentX == (int)GameController.Impasses[i].transform.position.x) { 
+						print ("impasses");
+						return false;
+					}
+				}
+				for (int i = 0; i < GameController.Repels.Length; i++){
+					if(currentX == (int)GameController.Repels[i].transform.position.x && GameController.Repels[i] != this) {
+						print ("repels");
+						return false;
+					}
+				}
+				for (int i = 0; i < GameController.Attracts.Length; i++){
+					if(currentX == (int)GameController.Attracts[i].transform.position.x) {
+						print ("attracts");
+						return false;
+					}
+				}
+				print (currentX);
+				currentX-=1;
+			}
 		}
-	} 
-	*/
+		
+		if (roverDirection.Equals("right")) {
+			int currentX = (int)this.transform.position.x+1;
+			print ("currentX: " + currentX);
+			//print ("rover: " + rover.transform.position.x);
+			
+			while (currentX < rover.transform.position.x) {
+				for (int i = 0; i < GameController.Impasses.Length; i++){
+					if(currentX == (int)GameController.Impasses[i].transform.position.x) { 
+						print ("impasses");
+						return false;
+					}
+				}
+				for (int i = 0; i < GameController.Repels.Length; i++){
+					if(currentX == (int)GameController.Repels[i].transform.position.x  && GameController.Repels[i] != this) {
+						print ("repels");
+						return false;
+					}
+				}
+				for (int i = 0; i < GameController.Attracts.Length; i++){
+					if(currentX == (int)GameController.Attracts[i].transform.position.x) {
+						print ("attracts");
+						return false;
+					}
+				}
+				print (currentX);
+				currentX+=1;
+			}
+		}
+		
+		if (roverDirection.Equals("up")) {
+			int currentY = (int)this.transform.position.y+1;
+			print ("currentY: " + currentY);
+			//print ("rover: " + rover.transform.position.x);
+			
+			while (currentY < rover.transform.position.y) {
+				for (int i = 0; i < GameController.Impasses.Length; i++){
+					if(currentY == (int)GameController.Impasses[i].transform.position.y) { 
+						print ("impasses");
+						return false;
+					}
+				}
+				for (int i = 0; i < GameController.Repels.Length; i++){
+					if(currentY == (int)GameController.Repels[i].transform.position.y && GameController.Repels[i] != this) {
+						print ("repels");
+						return false;
+					}
+				}
+				for (int i = 0; i < GameController.Attracts.Length; i++){
+					if(currentY == (int)GameController.Attracts[i].transform.position.y) {
+						print ("attracts");
+						return false;
+					}
+				}
+				print (currentY);
+				currentY+=1;
+			}
+		}
+		
+		if (roverDirection.Equals("down")) {
+			int currentY = (int)this.transform.position.y-1;
+			print ("currentY: " + currentY);
+			//print ("rover: " + rover.transform.position.x);
+			
+			while (currentY > rover.transform.position.y) {
+				for (int i = 0; i < GameController.Impasses.Length; i++){
+					if(currentY == (int)GameController.Impasses[i].transform.position.y) { 
+						print ("impasses");
+						return false;
+					}
+				}
+				for (int i = 0; i < GameController.Repels.Length; i++){
+					if(currentY == (int)GameController.Repels[i].transform.position.y  && GameController.Repels[i] != this) {
+						print ("repels");
+						return false;
+					}
+				}
+				for (int i = 0; i < GameController.Attracts.Length; i++){
+					if(currentY == (int)GameController.Attracts[i].transform.position.y) {
+						print ("attracts");
+						return false;
+					}
+				}
+				print (currentY);
+				currentY-=1;
+			}
+		}
+		
+		/*
+		for (int i = 0; i <= GameController.Impasses.Length; i++){
+			if(currentX == (int)GameController.Impasses[i].transform.position.x) { 
+				return false;
+			}
+		}
+		for (int i = 0; i <= GameController.Repels.Length; i++){
+			if(currentX == (int)GameController.Repels[i].transform.position.x) {
+				return false;
+			}
+		}
+		for (int i = 0; i <= GameController.Attracts.Length; i++){
+			if(currentX == GameController.Attracts[i].transform.position.x && GameController.Attracts[i] != this) {
+				return false;
+			}
+		}
+		*/
+		return true;
+	}
 
 }
