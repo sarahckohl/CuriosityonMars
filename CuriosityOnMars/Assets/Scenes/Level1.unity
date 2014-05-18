@@ -539,7 +539,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endlevel: {fileID: 556346191}
+  currentlength: 0
+  Attracts: []
+  passables: []
+  Repels: []
+  Players: []
+  Impasses: []
+  Destructs: []
+  nooverlap: []
+  Impassables: []
   rover: {fileID: 1930769566}
+  currentInfluencer: {fileID: 0}
 --- !u!4 &735499444
 Transform:
   m_ObjectHideFlags: 0
@@ -2115,6 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb9642fe8151e4479e2dceb722bcf82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range3: {fileID: 0}
   rover: {fileID: 1930769566}
   collideRepel: 0
   activateRepel: 0
