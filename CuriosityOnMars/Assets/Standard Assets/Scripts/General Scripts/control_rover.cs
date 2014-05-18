@@ -16,17 +16,19 @@ public class control_rover : MonoBehaviour {
 	//public GameObject[] attractors;
 	//public GameObject[] impasses;
 	public bool impassable = false;
-	//private GameController GameController;
+	private GameController GameController;
 	public GameObject currentInfluencer;
 	public Sprite leftImage, rightImage, upImage, downImage;
 	
 	
 	// Use this for initialization
 	void Start () {
-		/*GameObject GameControllerObject = GameObject.FindWithTag ("GameController");
+		GameObject GameControllerObject = GameObject.FindWithTag ("GameController");
 		if (GameControllerObject != null) {
 			GameController = GameControllerObject.GetComponent <GameController>();
-		}*/
+		}
+
+
 		movementTimer = new System.Timers.Timer (1000);
 		movementTimer.Elapsed += new ElapsedEventHandler (OnEverySecond);
 		movementTimer.Enabled = true;
