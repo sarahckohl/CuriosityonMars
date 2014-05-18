@@ -538,11 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7922678af0030b34181c488cbc5e3042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: 0
-  placeStage: 0
-  moveItems: 0
-  win: 0
-  lose: 0
   endlevel: {fileID: 556346191}
 --- !u!4 &735499444
 Transform:
@@ -1857,6 +1852,7 @@ MonoBehaviour:
   dir: 4
   shouldMove: 0
   impassable: 0
+  currentInfluencer: {fileID: 0}
 --- !u!65 &1930769567
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -19,8 +19,8 @@ public class control_attractor : MonoBehaviour {
 	float roverDistancey;
 	GameObject[] tiles;
 	GameObject[] nooverlap;
-	private GameController gameController;
-	GameObject gameControllerObject;
+	//private GameController GameController;
+	//GameObject GameControllerObject;
 	// Use this for initialization
 
 	void Awake () {
@@ -48,18 +48,18 @@ public class control_attractor : MonoBehaviour {
 
 		hover = false;
 		tiles = GameObject.FindGameObjectsWithTag("map");
-
-		if (gameControllerObject == null) {
-			gameControllerObject = GameObject.FindWithTag ("GameController");
+		/*
+		if (GameControllerObject == null) {
+			GameControllerObject = GameObject.FindWithTag ("GameController");
 		}
-		if (gameControllerObject != null) {
-			gameController = gameControllerObject.GetComponent <GameController>();
+		if (GameControllerObject != null) {
+			GameController = GameControllerObject.GetComponent <GameController>();
 		}
-
-		print (gameController.currentlength);
-		for (int i = 0; i < gameController.currentlength; i++){
+		*/
+		print (GameController.currentlength);
+		for (int i = 0; i < GameController.currentlength; i++){
 			//print (foo.transform.position.x+  ", " + foo.transform.position.y);
-			print (gameController.nooverlap[i].transform.position.x+  ", " + gameController.nooverlap[i].transform.position.y);
+			print (GameController.nooverlap[i].transform.position.x+  ", " + GameController.nooverlap[i].transform.position.y);
 		}
 
 		//originalColor = tiles [1].renderer.material.color;
@@ -219,20 +219,20 @@ public class control_attractor : MonoBehaviour {
 			//print ("rover: " + rover.transform.position.x);
 
 			while (currentX > rover.transform.position.x) {
-				for (int i = 0; i < gameController.Impasses.Length; i++){
-					if(currentX == (int)gameController.Impasses[i].transform.position.x) { 
+				for (int i = 0; i < GameController.Impasses.Length; i++){
+					if(currentX == (int)GameController.Impasses[i].transform.position.x) { 
 						print ("impasses");
 						return false;
 					}
 				}
-				for (int i = 0; i < gameController.Repels.Length; i++){
-					if(currentX == (int)gameController.Repels[i].transform.position.x) {
+				for (int i = 0; i < GameController.Repels.Length; i++){
+					if(currentX == (int)GameController.Repels[i].transform.position.x) {
 						print ("repels");
 						return false;
 					}
 				}
-				for (int i = 0; i < gameController.Attracts.Length; i++){
-					if(currentX == (int)gameController.Attracts[i].transform.position.x && gameController.Attracts[i] != this) {
+				for (int i = 0; i < GameController.Attracts.Length; i++){
+					if(currentX == (int)GameController.Attracts[i].transform.position.x && GameController.Attracts[i] != this) {
 						print ("attracts");
 						return false;
 					}
@@ -248,20 +248,20 @@ public class control_attractor : MonoBehaviour {
 			//print ("rover: " + rover.transform.position.x);
 			
 			while (currentX < rover.transform.position.x) {
-				for (int i = 0; i < gameController.Impasses.Length; i++){
-					if(currentX == (int)gameController.Impasses[i].transform.position.x) { 
+				for (int i = 0; i < GameController.Impasses.Length; i++){
+					if(currentX == (int)GameController.Impasses[i].transform.position.x) { 
 						print ("impasses");
 						return false;
 					}
 				}
-				for (int i = 0; i < gameController.Repels.Length; i++){
-					if(currentX == (int)gameController.Repels[i].transform.position.x) {
+				for (int i = 0; i < GameController.Repels.Length; i++){
+					if(currentX == (int)GameController.Repels[i].transform.position.x) {
 						print ("repels");
 						return false;
 					}
 				}
-				for (int i = 0; i < gameController.Attracts.Length; i++){
-					if(currentX == (int)gameController.Attracts[i].transform.position.x && gameController.Attracts[i] != this) {
+				for (int i = 0; i < GameController.Attracts.Length; i++){
+					if(currentX == (int)GameController.Attracts[i].transform.position.x && GameController.Attracts[i] != this) {
 						print ("attracts");
 						return false;
 					}
@@ -277,20 +277,20 @@ public class control_attractor : MonoBehaviour {
 			//print ("rover: " + rover.transform.position.x);
 			
 			while (currentY < rover.transform.position.y) {
-				for (int i = 0; i < gameController.Impasses.Length; i++){
-					if(currentY == (int)gameController.Impasses[i].transform.position.y) { 
+				for (int i = 0; i < GameController.Impasses.Length; i++){
+					if(currentY == (int)GameController.Impasses[i].transform.position.y) { 
 						print ("impasses");
 						return false;
 					}
 				}
-				for (int i = 0; i < gameController.Repels.Length; i++){
-					if(currentY == (int)gameController.Repels[i].transform.position.y) {
+				for (int i = 0; i < GameController.Repels.Length; i++){
+					if(currentY == (int)GameController.Repels[i].transform.position.y) {
 						print ("repels");
 						return false;
 					}
 				}
-				for (int i = 0; i < gameController.Attracts.Length; i++){
-					if(currentY == (int)gameController.Attracts[i].transform.position.y && gameController.Attracts[i] != this) {
+				for (int i = 0; i < GameController.Attracts.Length; i++){
+					if(currentY == (int)GameController.Attracts[i].transform.position.y && GameController.Attracts[i] != this) {
 						print ("attracts");
 						return false;
 					}
@@ -306,20 +306,20 @@ public class control_attractor : MonoBehaviour {
 			//print ("rover: " + rover.transform.position.x);
 			
 			while (currentY > rover.transform.position.y) {
-				for (int i = 0; i < gameController.Impasses.Length; i++){
-					if(currentY == (int)gameController.Impasses[i].transform.position.y) { 
+				for (int i = 0; i < GameController.Impasses.Length; i++){
+					if(currentY == (int)GameController.Impasses[i].transform.position.y) { 
 						print ("impasses");
 						return false;
 					}
 				}
-				for (int i = 0; i < gameController.Repels.Length; i++){
-					if(currentY == (int)gameController.Repels[i].transform.position.y) {
+				for (int i = 0; i < GameController.Repels.Length; i++){
+					if(currentY == (int)GameController.Repels[i].transform.position.y) {
 						print ("repels");
 						return false;
 					}
 				}
-				for (int i = 0; i < gameController.Attracts.Length; i++){
-					if(currentY == (int)gameController.Attracts[i].transform.position.y && gameController.Attracts[i] != this) {
+				for (int i = 0; i < GameController.Attracts.Length; i++){
+					if(currentY == (int)GameController.Attracts[i].transform.position.y && GameController.Attracts[i] != this) {
 						print ("attracts");
 						return false;
 					}
@@ -330,18 +330,18 @@ public class control_attractor : MonoBehaviour {
 		}
 
 		/*
-		for (int i = 0; i <= gameController.Impasses.Length; i++){
-			if(currentX == (int)gameController.Impasses[i].transform.position.x) { 
+		for (int i = 0; i <= GameController.Impasses.Length; i++){
+			if(currentX == (int)GameController.Impasses[i].transform.position.x) { 
 				return false;
 			}
 		}
-		for (int i = 0; i <= gameController.Repels.Length; i++){
-			if(currentX == (int)gameController.Repels[i].transform.position.x) {
+		for (int i = 0; i <= GameController.Repels.Length; i++){
+			if(currentX == (int)GameController.Repels[i].transform.position.x) {
 				return false;
 			}
 		}
-		for (int i = 0; i <= gameController.Attracts.Length; i++){
-			if(currentX == gameController.Attracts[i].transform.position.x && gameController.Attracts[i] != this) {
+		for (int i = 0; i <= GameController.Attracts.Length; i++){
+			if(currentX == GameController.Attracts[i].transform.position.x && GameController.Attracts[i] != this) {
 				return false;
 			}
 		}

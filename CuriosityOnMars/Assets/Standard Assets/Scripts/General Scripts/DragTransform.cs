@@ -8,41 +8,40 @@ class DragTransform : MonoBehaviour
 	public bool dragging = false;
 	public bool gotMoveItems = false;
 	private float distance;
-	private GameController gameController;
+	//private GameController GameController;
 	private Vector3 screenPoint;
 	
 	void Start()
 	{
-
 		//originalColor = renderer.material.color;
 
-		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		if (gameControllerObject != null) {
-			gameController = gameControllerObject.GetComponent <GameController>();
-			if (gameController.moveItems) {
+		//GameObject GameControllerObject = GameObject.FindWithTag ("GameController");
+		//if (GameControllerObject != null) {
+			//GameController = GameControllerObject.GetComponent <GameController>();
+			if (GameController.moveItems) {
 				//for testing to make sure that the gamecontroller vool is passing through
 				gotMoveItems = true;
 			}
-		}
+		//}
 	}
 	
 	void OnMouseEnter()	
 	{	
-		if (gameController.moveItems) {
+		if (GameController.moveItems) {
 			renderer.material.color = mouseOverColor;	
 		}
 	}
 	
 	void OnMouseExit()	
 	{	
-		if (gameController.moveItems) {
+		if (GameController.moveItems) {
 			renderer.material.color = originalColor;	
 		}
 	}
 	
 	void OnMouseDown()	
 	{	
-		if (gameController.moveItems) {
+		if (GameController.moveItems) {
 			//distance = Vector3.Distance (transform.position, Camera.main.transform.position);
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 			dragging = true;
@@ -50,7 +49,7 @@ class DragTransform : MonoBehaviour
 	}
 	
 	void OnMouseDrag () {
-		if (gameController.moveItems) {
+		if (GameController.moveItems) {
 			Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 			Vector3 currentPos = Camera.main.ScreenToWorldPoint(currentScreenPoint);
 			transform.position = currentPos;
@@ -59,7 +58,7 @@ class DragTransform : MonoBehaviour
 	
 	void OnMouseUp()	
 	{	
-		if (gameController.moveItems) {
+		if (GameController.moveItems) {
 			dragging = false;	
 		}
 	}

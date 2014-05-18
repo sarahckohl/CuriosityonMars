@@ -3,7 +3,7 @@ using System.Collections;
 
 public class goalScript : MonoBehaviour {
 	private control_rover rover;
-	private GameController gameController;
+	//private GameController gameController;
 	// Use this for initialization
 	void Start () {
 		//rover = GameObject.FindGameObjectWithTag ("Player");
@@ -11,10 +11,10 @@ public class goalScript : MonoBehaviour {
 		if (roverObject != null) {
 			rover = roverObject.GetComponent <control_rover>();
 		}
-		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		if (gameControllerObject != null) {
-			gameController = gameControllerObject.GetComponent <GameController>();
-		}
+		//GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		//if (gameControllerObject != null) {
+		//	gameController = gameControllerObject.GetComponent <GameController>();
+		//}
 		//gameObject.tag = "Goal";
 	}
 	
@@ -24,9 +24,9 @@ public class goalScript : MonoBehaviour {
 			// move to next scene
 			//Application.LoadLevel(Application.loadedLevel + 1);
 			rover.shouldMove = false;
-			gameController.win = true;
-			gameController.lose = false;
-			gameController.gameOver = true;
+			GameController.win = true;
+			GameController.lose = false;
+			GameController.gameOver = true;
 				}
 	}
 }

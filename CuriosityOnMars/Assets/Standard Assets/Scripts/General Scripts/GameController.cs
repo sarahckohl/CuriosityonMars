@@ -3,20 +3,20 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-	public bool gameOver = false;
-	public bool placeStage = false;
-	public bool moveItems = false;
-	public bool win = false;
-	public bool lose = false;
+	public static bool gameOver = false;
+	public static bool placeStage = false;
+	public static bool moveItems = false;
+	public static bool win = false;
+	public static bool lose = false;
 	public GUIText endlevel;
-	public GameObject[] nooverlap;
-	public int currentlength = 0;
-	public GameObject[] Attracts;
-	public GameObject[] passables;
-	public GameObject[] Repels;
-	public GameObject[] Players;
-	public GameObject[] Impasses;
-	public GameObject[] Destructs;
+	public static int currentlength = 0;
+	public static GameObject[] Attracts;
+	public static GameObject[] passables;
+	public static GameObject[] Repels;
+	public static GameObject[] Players;
+	public static GameObject[] Impasses;
+	public static GameObject[] Destructs;
+	public static GameObject[] nooverlap;
 
 	void Awake() {
 		Attracts = GameObject.FindGameObjectsWithTag("Attract");
