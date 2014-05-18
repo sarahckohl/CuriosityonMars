@@ -128,7 +128,7 @@ public class control_rover : MonoBehaviour {
 			}else if(this.dir == Direction.Up)
 			{
 				// keep its boundary
-				if (this.transform.position.y < 10)
+				if (this.transform.position.y < 9)
 				{
 					// make sure there is not an impasse upwards
 					GetComponent<SpriteRenderer>().sprite = upImage;
