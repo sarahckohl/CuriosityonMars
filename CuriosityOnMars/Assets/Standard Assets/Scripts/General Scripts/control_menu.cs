@@ -7,14 +7,17 @@ public class control_menu : MonoBehaviour {
 	public Texture2D instructions;
 	public Texture2D credits;
 	public Texture2D exit;
+	public Texture playButton;
+	public Texture instructButton;
+	public Texture creditsButton;
 	private bool drawInstructions;
 	private bool drawCredits;
 
 	// Use this for initialization
 	void Start () {
-		sizeX = 100;
-		sizeY = 50;
-		y = 75;
+		sizeX = playButton.width;
+		sizeY = playButton.height;
+		y = Screen.height/3;
 		x = Screen.width/2 - sizeX / 2;
 
 		drawInstructions = false;
@@ -28,16 +31,16 @@ public class control_menu : MonoBehaviour {
 		//not sure why the numbers are doubled when the game runs though..
 		if (!drawInstructions && !drawCredits) 
 		{
-			if (GUI.Button (new Rect (x, y, sizeX, sizeY), "Play")) 
+			if (GUI.Button (new Rect (x, y, 120, sizeY), playButton)) 
 			{
 				Application.LoadLevel (Application.loadedLevel + 1);
 				//print ("reset!!");
 			}
-			if (GUI.Button (new Rect (x, y + sizeY + 10, sizeX, sizeY), "Instructions")) 
+			if (GUI.Button (new Rect (x, y + sizeY + 10, sizeX, sizeY), instructButton)) 
 			{
 				drawInstructions = true;
 			}
-			if (GUI.Button (new Rect (x, y + 2*(sizeY) + 20, sizeX, sizeY), "Credits"))
+			if (GUI.Button (new Rect (x, y + 2*(sizeY) + 20, sizeX, sizeY), creditsButton))
 			{
 				drawCredits = true;
 			}
