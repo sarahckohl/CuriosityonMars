@@ -24,6 +24,9 @@ public class control_attractor : MonoBehaviour {
 	// Use this for initialization
 
 	void Awake () {
+
+		originalPosition = this.transform.position;
+
 		spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
 		if (spriteRenderer.sprite == null){ // if the sprite on spriteRenderer is null then
 			spriteRenderer.sprite = range3; // set the sprite to sprite1
@@ -43,7 +46,7 @@ public class control_attractor : MonoBehaviour {
 	}
 
 	void Start () {
-		originalPosition = this.transform.position;
+
 
 		hover = false;
 		tiles = GameObject.FindGameObjectsWithTag("map");
@@ -83,6 +86,21 @@ public class control_attractor : MonoBehaviour {
 		*/
 		collideAttract = false;
 		gameObject.tag = "Attract";
+	}
+
+
+
+	void OnMouseUp(){
+
+		for (int i=0; i<GameController.currentlength; i++) {
+			if((GameController.nooverlap[i].transform.position==gameObject.transform.position)&&(GameController.nooverlap[i]!=gameObject))		
+			   {
+				gameObject.transform.position = originalPosition;
+			   	break;
+			}
+		}
+
+
 	}
 
 
