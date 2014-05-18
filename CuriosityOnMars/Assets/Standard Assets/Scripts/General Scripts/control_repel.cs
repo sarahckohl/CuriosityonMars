@@ -6,6 +6,7 @@ public class control_repel : MonoBehaviour {
 	public Sprite range3;
 	private Color mouseOverColor = Color.cyan;
 	private Color originalColor;
+	private Color rangeColor;
 	bool hover;
 	public control_rover rover;
 	public bool collideRepel = false;
@@ -17,32 +18,44 @@ public class control_repel : MonoBehaviour {
 	Vector3 originalPosition;
 	GameObject[] tiles;
 	private SpriteRenderer spriteRenderer; 
+	private GameController GameController;
+	GameObject GameControllerObject;
 
 
 	void Awake () {
 		
-		originalPosition = this.transform.position;
+				originalPosition = this.transform.position;
 		
-		spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
-		if (spriteRenderer.sprite == null){ // if the sprite on spriteRenderer is null then
-			spriteRenderer.sprite = range3; // set the sprite to sprite1
-		}
-		else if (attractRange == 4){
-			//spriteRenderer.sprite = range4;
+				spriteRenderer = GetComponent<SpriteRenderer> (); // we are accessing the SpriteRenderer that is attached to the Gameobject
+				if (spriteRenderer.sprite == null) { // if the sprite on spriteRenderer is null then
+						spriteRenderer.sprite = range3; // set the sprite to sprite1
+
+						rangeColor = gameObject.renderer.material.color;
+				} else if (attractRange == 4) {
+						//spriteRenderer.sprite = range4;
+						//gameObject.renderer.material.color = new Color(1, .1f, .1f);
 			gameObject.renderer.material.color = new Color(1, .1f, .1f);
-		}
-		else if (attractRange == 5){
-			//spriteRenderer.sprite = range5;
+				} else if (attractRange == 5) {
+						//spriteRenderer.sprite = range5;
+						//gameObject.renderer.material.color = new Color(.973f, .153f, .984f);
 			gameObject.renderer.material.color = new Color(.973f, .153f, .984f);
-		}
-		else if (attractRange >= 6){
-			//spriteRenderer.sprite = range6;
+				} else if (attractRange >= 6) {
+						//spriteRenderer.sprite = range6;
 			gameObject.renderer.material.color = new Color(0,.851f, .965f);
+				}
 		}
-	}
 
 	// Use this for initialization
 	void Start () {
+
+		if (GameControllerObject == null) {
+			GameControllerObject = GameObject.FindWithTag ("GameController");
+		}
+		if (GameControllerObject != null) {
+			GameController = GameControllerObject.GetComponent <GameController>();
+		}
+
+
 		GameObject attractObject = GameObject.FindWithTag ("Attract");
 		if (attractObject != null) {
 			attract = attractObject.GetComponent <control_attractor>();
@@ -129,7 +142,7 @@ public class control_repel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (this.transform.position.y <= 2)
+		if (this.transform.position.y < 1)
 			return;
 
 		//check if the rover needs to go up or down
