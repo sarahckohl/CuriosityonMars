@@ -3,7 +3,7 @@ using System.Collections;
 
 public class control_repel : MonoBehaviour {
 
-	
+	public Sprite range3;
 	private Color mouseOverColor = Color.cyan;
 	private Color originalColor;
 	bool hover;
@@ -14,7 +14,32 @@ public class control_repel : MonoBehaviour {
 	private control_attractor attract;
 	float roverDistancex;
 	float roverDistancey;
+	Vector3 originalPosition;
 	GameObject[] tiles;
+	private SpriteRenderer spriteRenderer; 
+
+
+	void Awake () {
+		
+		originalPosition = this.transform.position;
+		
+		spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
+		if (spriteRenderer.sprite == null){ // if the sprite on spriteRenderer is null then
+			spriteRenderer.sprite = range3; // set the sprite to sprite1
+		}
+		else if (attractRange == 4){
+			//spriteRenderer.sprite = range4;
+			gameObject.renderer.material.color = new Color(1, .1f, .1f);
+		}
+		else if (attractRange == 5){
+			//spriteRenderer.sprite = range5;
+			gameObject.renderer.material.color = new Color(.973f, .153f, .984f);
+		}
+		else if (attractRange >= 6){
+			//spriteRenderer.sprite = range6;
+			gameObject.renderer.material.color = new Color(0,.851f, .965f);
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +54,20 @@ public class control_repel : MonoBehaviour {
 		collideRepel = false;
 		gameObject.tag = "Repel";
 		//attractObject.transform.
+	}
+
+
+	void OnMouseUp(){
+		
+		for (int i=0; i<GameController.currentlength; i++) {
+			if((GameController.nooverlap[i].transform.position==gameObject.transform.position)&&(GameController.nooverlap[i]!=gameObject))		
+			{
+				gameObject.transform.position = originalPosition;
+				break;
+			}
+		}
+		
+		
 	}
 
 
