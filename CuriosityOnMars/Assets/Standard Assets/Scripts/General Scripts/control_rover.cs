@@ -32,14 +32,20 @@ public class control_rover : MonoBehaviour {
 		shouldMove = false;
 		impassable = false;
 		gameObject.tag = "Player";
+		print (GameController.Impassables.Length);
+		foreach (GameObject foo in GameController.Impassables) {
+			print (foo);
+		}
 	}
 
 	void OnTriggerEnter(Collider col) {
+		/*
 		if ( col.tag == "Impass" || col.tag == "Attract") {
 			Debug.Log("collide");
 			impassable = true;
 			return;
 		}
+		*/
 		if (col.tag == "Destruct") {
 			if (col.transform.position == gameObject.transform.position){
 				print ("destruct");
@@ -52,6 +58,7 @@ public class control_rover : MonoBehaviour {
 			}
 		}
 	} 
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -65,7 +72,7 @@ public class control_rover : MonoBehaviour {
 
 
 		// will move once a second in the given direction, unless it is outside of its boundary
-		if (dir != Direction.Stop && shouldMove) 
+		if (dir != Direction.Stop && shouldMove ) 
 		{
 			if(this.dir == Direction.Right)
 			{
@@ -75,9 +82,19 @@ public class control_rover : MonoBehaviour {
 					// make sure there is not an impasse to the right.
 					gameObject.transform.eulerAngles = new Vector3(0,0,-90);
 					
-					if(!impassable){
+					//if(!impassable){
+						//print (this.transform.position.x + ", " + GameController.Impasses[1].transform.position.x);
+						for (int i = 0; i < GameController.Impassables.Length; i++){
+							if(this.transform.position.x+1 == (int)GameController.Impassables[i].transform.position.x) { 
+								//if (this.transform.position.x+1){
+								impassable = true;
+							}else{
+								impassable = false;
+							}
+						}
+					if (!impassable)
 						this.transform.position = new Vector2(this.transform.position.x + 1, this.transform.position.y);
-					}
+					//}
 				}
 			}else if(this.dir == Direction.Left)
 			{
@@ -86,9 +103,20 @@ public class control_rover : MonoBehaviour {
 				{
 					// make sure there is not an impasse to the left.
 					gameObject.transform.eulerAngles = new Vector3(0,0,90);
-					if(!impassable){
-						this.transform.position = new Vector2(this.transform.position.x - 1, this.transform.position.y);
+					//if(!impassable){
+					print(this.transform.position.x + ", " + this.transform.position.y + "  " + (int)GameController.Impasses[0].transform.position.x + ", " + (int)GameController.Impasses[0].transform.position.y);
+					print (impassable);
+					for (int i = 0; i < GameController.Impassables.Length; i++){
+						if(this.transform.position.x-1 == (int)GameController.Impassables[i].transform.position.x) { 
+							//if (this.transform.position.x+1){
+							impassable = true;
+						}else{
+							impassable = false;
+						}
 					}
+					if (!impassable)
+						this.transform.position = new Vector2(this.transform.position.x - 1, this.transform.position.y);
+					//}
 				}
 			}else if(this.dir == Direction.Up)
 			{
@@ -97,9 +125,20 @@ public class control_rover : MonoBehaviour {
 				{
 					// make sure there is not an impasse upwards
 					gameObject.transform.eulerAngles = new Vector3(0,0,0);
-					if(!impassable){
-						this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
+					//if(!impassable){
+					print (this.transform.position.x + ", " + (int)GameController.Impasses[0].transform.position.x);
+					for (int i = 0; i < GameController.Impassables.Length; i++){
+						if(this.transform.position.y+1 == (int)GameController.Impassables[i].transform.position.y 
+						   /*&& this.transform.position.x == (int)GameController.Impassables[i].transform.position.x*/) { 
+							//if (this.transform.position.x+1){
+							impassable = true;
+						}else{
+							impassable = false;
+						}
 					}
+					if (!impassable)
+						this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
+					//}
 				}
 			}else if(this.dir == Direction.Down)
 			{
@@ -108,9 +147,20 @@ public class control_rover : MonoBehaviour {
 				{
 					// make sure there is not an impasse downwards
 					gameObject.transform.eulerAngles = new Vector3(0,0,180);
-					if(!impassable){
-						this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 1);
+					//if(!impassable){
+					for (int i = 0; i < GameController.Impassables.Length; i++){
+						print (this.transform.position.y + ", " + GameController.Impasses[0].transform.position.y);
+						if(this.transform.position.y-1 == (int)GameController.Impassables[i].transform.position.y
+						   /*&& this.transform.position.x == (int)GameController.Impassables[i].transform.position.x*/) { 
+							//if (this.transform.position.x+1){
+							impassable = true;
+						}else{
+							impassable = false;
+						}
 					}
+					if (!impassable)
+						this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 1);
+					//}
 				}
 			}
 			
