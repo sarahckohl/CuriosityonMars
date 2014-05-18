@@ -18,8 +18,11 @@ public class GameController : MonoBehaviour
 	public static GameObject[] Destructs;
 	public static GameObject[] nooverlap;
 	public static GameObject[] Impassables;
+	private Vector3 initialRoverPosition;
+	public control_rover rover;
 
 	void Awake() {
+		initialRoverPosition = rover.transform.position;
 		Attracts = GameObject.FindGameObjectsWithTag("Attract");
 		passables = GameObject.FindGameObjectsWithTag("passable");
 		Repels = GameObject.FindGameObjectsWithTag("Repel");
@@ -143,7 +146,13 @@ public class GameController : MonoBehaviour
 		if(GUI.Button(new Rect(0,0,50,30), "Reset")) {
 			gameOverText("");
 			gameOver = false;
-			Application.LoadLevel(Application.loadedLevel);
+			rover.transform.position = initialRoverPosition;
+			placeStage = true;
+			moveItems = true;
+			endlevel.text = "";
+			win = false;
+			lose = false;
+			//Application.LoadLevel(Application.loadedLevel);
 			//print ("reset!!");
 		}
 	}
