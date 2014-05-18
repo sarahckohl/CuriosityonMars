@@ -538,11 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7922678af0030b34181c488cbc5e3042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: 0
-  placeStage: 0
-  moveItems: 0
-  win: 0
-  lose: 0
   endlevel: {fileID: 556346191}
 --- !u!4 &735499444
 Transform:
@@ -1073,6 +1068,47 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
+      propertyPath: left
+      value: 
+      objectReference: {fileID: 2800000, guid: 446271aff6ba30040a4ac57a9d4554e3, type: 3}
+    - target: {fileID: 11400002, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
+      propertyPath: right
+      value: 
+      objectReference: {fileID: 2800000, guid: 9dea2c411e7f69b40bd294316ccb39db, type: 3}
+    - target: {fileID: 11400002, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
+      propertyPath: down
+      value: 
+      objectReference: {fileID: 2800000, guid: bde97a08551803c4ebd08cb090630558, type: 3}
+    - target: {fileID: 11400002, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
+      propertyPath: up
+      value: 
+      objectReference: {fileID: 2800000, guid: d40a80851e56e444a836d6bf69807697, type: 3}
+    - target: {fileID: 21200000, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9dea2c411e7f69b40bd294316ccb39db,
+        type: 3}
+    - target: {fileID: 11400002, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
+      propertyPath: leftImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 446271aff6ba30040a4ac57a9d4554e3,
+        type: 3}
+    - target: {fileID: 11400002, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
+      propertyPath: rightImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 9dea2c411e7f69b40bd294316ccb39db,
+        type: 3}
+    - target: {fileID: 11400002, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
+      propertyPath: upImage
+      value: 
+      objectReference: {fileID: 21300000, guid: d40a80851e56e444a836d6bf69807697,
+        type: 3}
+    - target: {fileID: 11400002, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
+      propertyPath: downImage
+      value: 
+      objectReference: {fileID: 21300000, guid: bde97a08551803c4ebd08cb090630558,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abd31e97621b6ca409def69287cc3ce2, type: 2}
   m_RootGameObject: {fileID: 1930769564}
@@ -1857,6 +1893,11 @@ MonoBehaviour:
   dir: 4
   shouldMove: 0
   impassable: 0
+  currentInfluencer: {fileID: 0}
+  leftImage: {fileID: 21300000, guid: 446271aff6ba30040a4ac57a9d4554e3, type: 3}
+  rightImage: {fileID: 21300000, guid: 9dea2c411e7f69b40bd294316ccb39db, type: 3}
+  upImage: {fileID: 21300000, guid: d40a80851e56e444a836d6bf69807697, type: 3}
+  downImage: {fileID: 21300000, guid: bde97a08551803c4ebd08cb090630558, type: 3}
 --- !u!65 &1930769567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1908,7 +1949,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 5eed168ef65ada145b6bf387959df1ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9dea2c411e7f69b40bd294316ccb39db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1930769570
 Transform:
