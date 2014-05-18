@@ -67,6 +67,7 @@
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\PhotoScript.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\Tile.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_attractor.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_destruct.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_down_impeller.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_impasse.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\control_impeller.cs" />

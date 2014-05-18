@@ -18,6 +18,7 @@ public class control_rover : MonoBehaviour {
 	public bool impassable = false;
 	//private GameController GameController;
 	public GameObject currentInfluencer;
+	public Sprite leftImage, rightImage, upImage, downImage;
 	
 	
 	// Use this for initialization
@@ -76,11 +77,12 @@ public class control_rover : MonoBehaviour {
 		{
 			if(this.dir == Direction.Right)
 			{
+				GetComponent<SpriteRenderer>().sprite = rightImage;
 				// make sure it does not go over 8
 				if(this.transform.position.x < 10)
 				{
 					// make sure there is not an impasse to the right.
-					gameObject.transform.eulerAngles = new Vector3(0,0,-90);
+
 					
 					//if(!impassable){
 						//print (this.transform.position.x + ", " + GameController.Impasses[1].transform.position.x);
@@ -103,8 +105,8 @@ public class control_rover : MonoBehaviour {
 				// make sure this does not go less than 1
 				if (this.transform.position.x > 1)
 				{
+					GetComponent<SpriteRenderer>().sprite = leftImage;
 					// make sure there is not an impasse to the left.
-					gameObject.transform.eulerAngles = new Vector3(0,0,90);
 					//if(!impassable){
 					//print(this.transform.position.x + ", " + this.transform.position.y + "  " + (int)GameController.Impasses[0].transform.position.x + ", " + (int)GameController.Impasses[0].transform.position.y);
 					//print (impassable);
@@ -129,7 +131,7 @@ public class control_rover : MonoBehaviour {
 				if (this.transform.position.y < 10)
 				{
 					// make sure there is not an impasse upwards
-					gameObject.transform.eulerAngles = new Vector3(0,0,0);
+					GetComponent<SpriteRenderer>().sprite = upImage;
 					//if(!impassable){
 					print (this.transform.position.x + ", " + (int)GameController.Impasses[0].transform.position.x);
 					for (int i = 0; i < GameController.Impassables.Length; i++){
@@ -152,7 +154,7 @@ public class control_rover : MonoBehaviour {
 				if (this.transform.position.y > 1)
 				{
 					// make sure there is not an impasse downwards
-					gameObject.transform.eulerAngles = new Vector3(0,0,180);
+					GetComponent<SpriteRenderer>().sprite = downImage;
 					//if(!impassable){
 					for (int i = 0; i < GameController.Impassables.Length; i++){
 						print (this.transform.position.y + ", " + GameController.Impasses[0].transform.position.y);

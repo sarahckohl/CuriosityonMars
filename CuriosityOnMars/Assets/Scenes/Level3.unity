@@ -1745,11 +1745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7922678af0030b34181c488cbc5e3042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: 0
-  placeStage: 0
-  moveItems: 0
-  win: 0
-  lose: 0
   endlevel: {fileID: 1170890942}
 --- !u!4 &735499444
 Transform:
@@ -3478,7 +3473,7 @@ GameObject:
   - 114: {fileID: 1521830488}
   m_Layer: 0
   m_Name: Impeller
-  m_TagString: Untagged
+  m_TagString: passable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3533,7 +3528,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 571e8f963f1e1e043a5c112f4ece9f11, type: 3}
-  m_Color: {r: .200692073, g: .941176474, b: .787972808, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &1521830491
 Transform:
   m_ObjectHideFlags: 0
@@ -4472,6 +4467,11 @@ MonoBehaviour:
   dir: 4
   shouldMove: 0
   impassable: 0
+  currentInfluencer: {fileID: 0}
+  leftImage: {fileID: 0}
+  rightImage: {fileID: 0}
+  upImage: {fileID: 0}
+  downImage: {fileID: 0}
 --- !u!65 &1930769567
 BoxCollider:
   m_ObjectHideFlags: 0
