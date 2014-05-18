@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
 	public static GameObject[] Impassables;
 	private Vector3 initialRoverPosition;
 	public control_rover rover;
+	public GameObject currentInfluencer;
 
 	void Awake() {
 		initialRoverPosition = rover.transform.position;
